@@ -1400,3 +1400,7 @@ function createTierCard(tier) {
 
   return card;
 }
+
+
+
+// image sliding
