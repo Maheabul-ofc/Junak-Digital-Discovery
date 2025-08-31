@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Header Slideshow</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+        }
+
+        /* ===== SLIDESHOW CONTAINER ===== */
+        .page-header.courses-header {
+            position: relative;
+            height: 70vh;
+            min-height: 500px;
+            max-height: 800px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #2d8659 0%, #e85a5a 100%);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-slideshow {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 0 0 20px 20px;
+        }
+
+        /* ===== SLIDE IMAGES ===== */
+        .slide-item,
+        .slide-item-mobile {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: all 1.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+            transform: scale(1.1);
+            filter: brightness(0.8);
+        }
+
+        .slide-item.active,
+        .slide-item-mobile.active {
+            opacity: 1;
+            transform: scale(1);
+            filter: brightness(0.9);
+        }
+
+        /* Hide mobile images on desktop */
+        .slide-item-mobile {
+            display: none;
+        }
+
+        /* Overlay for better text contrast */
+        .header-slideshow::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(45, 134, 89, 0.3) 0%,
+                transparent 50%,
+                rgba(232, 90, 90, 0.3) 100%
+            );
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* ===== NAVIGATION BUTTONS ===== */
+        .slide-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+            backdrop-filter: blur(15px);
+            z-index: 10;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .slide-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .slide-btn:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        .slide-btn.prev {
+            left: 30px;
+        }
+
+        .slide-btn.next {
+            right: 30px;
+        }
+
+        /* ===== SLIDE INDICATORS ===== */
+        .slide-indicators {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 30px;
+            backdrop-filter: blur(15px);
+        }
+
+        .indicator {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .indicator:hover {
+            background: rgba(255, 255, 255, 0.6);
+            transform: scale(1.2);
+        }
+
+        .indicator.active {
+            background: #2d8659;
+            border-color: white;
+            transform: scale(1.4);
+            box-shadow: 0 0 0 3px rgba(45, 134, 89, 0.3);
+        }
+
+        .indicator.active::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 6px;
+            height: 6px;
+            background: white;
+            border-radius: 50%;
+        }
+
+        /* ===== SLIDE CONTENT OVERLAY ===== */
+        .slide-content {
+            position: absolute;
+            bottom: 80px;
+            left: 50px;
+            z-index: 5;
+            color: white;
+            max-width: 500px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .slide-item.active + .slide-content,
+        .slide-item-mobile.active + .slide-content {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .slide-content p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            .page-header.courses-header {
+                height: 60vh;
+                min-height: 400px;
+            }
+
+            /* Show mobile images, hide desktop */
+            .slide-item {
+                display: none;
+            }
+
+            .slide-item-mobile {
+                display: block;
+            }
+
+            .slide-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 16px;
+            }
+
+            .slide-btn.prev {
+                left: 20px;
+            }
+
+            .slide-btn.next {
+                right: 20px;
+            }
+
+            .slide-indicators {
+                bottom: 20px;
+                gap: 12px;
+                padding: 8px 16px;
+            }
+
+            .indicator {
+                width: 12px;
+                height: 12px;
+            }
+
+            .slide-content {
+                left: 30px;
+                bottom: 60px;
+                max-width: 300px;
+            }
+
+            .slide-content h2 {
+                font-size: 1.8rem;
+            }
+
+            .slide-content p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header.courses-header {
+                height: 50vh;
+                min-height: 350px;
+            }
+
+            .slide-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 14px;
+            }
+
+            .slide-btn.prev {
+                left: 15px;
+            }
+
+            .slide-btn.next {
+                right: 15px;
+            }
+
+            .slide-indicators {
+                gap: 10px;
+                padding: 6px 12px;
+            }
+
+            .indicator {
+                width: 10px;
+                height: 10px;
+            }
+
+            .slide-content {
+                left: 20px;
+                bottom: 50px;
+                max-width: 250px;
+            }
+
+            .slide-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .slide-content p {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* ===== ACCESSIBILITY ===== */
+        .slide-btn:focus,
+        .indicator:focus {
+            outline: 3px solid #2d8659;
+            outline-offset: 3px;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px) scale(1.1);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px) scale(1.1);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+        }
+
+        .slide-item.active {
+            animation: slideInRight 1.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+
+        .slide-item-mobile.active {
+            animation: slideInLeft 1.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+
+        /* Loading state */
+        .header-slideshow::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top: 3px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            z-index: 1;
+        }
+
+        .header-slideshow.loaded::after {
+            display: none;
+        }
+
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* Touch indicators for mobile */
+        @media (hover: none) and (pointer: coarse) {
+            .slide-btn {
+                opacity: 0.8;
+            }
+            
+            .slide-indicators {
+                padding: 12px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="page-header courses-header">
+        <div class="header-slideshow">
+            <!-- Desktop Images -->
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" class="slide-item active" alt="Digital Learning Environment">
+            
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="slide-item" alt="Modern Computer Lab">
+            
+            <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1526&q=80" class="slide-item" alt="Students Learning">
+            
+            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="slide-item" alt="AI and Technology">
+
+            <!-- Mobile Images -->
+            <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" class="slide-item-mobile active" alt="AI Marketing Mobile">
+            
+            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" class="slide-item-mobile" alt="Digital Marketing Mobile">
+            
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1415&q=80" class="slide-item-mobile" alt="Business Analytics Mobile">
+            
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" class="slide-item-mobile" alt="Team Collaboration Mobile">
+
+            <!-- Prev/Next Buttons -->
+            <button class="slide-btn prev" aria-label="Previous slide">&#10094;</button>
+            <button class="slide-btn next" aria-label="Next slide">&#10095;</button>
+        </div>
+
+        <!-- Slide indicators -->
+        <div class="slide-indicators">
+            <span class="indicator active" data-slide="0" role="button" tabindex="0" aria-label="Go to slide 1"></span>
+            <span class="indicator" data-slide="1" role="button" tabindex="0" aria-label="Go to slide 2"></span>
+            <span class="indicator" data-slide="2" role="button" tabindex="0" aria-label="Go to slide 3"></span>
+            <span class="indicator" data-slide="3" role="button" tabindex="0" aria-label="Go to slide 4"></span>
+        </div>
+    </section>
+
+    <script>
+        // Slideshow functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide-item');
+        const mobileSlides = document.querySelectorAll('.slide-item-mobile');
+        const indicators = document.querySelectorAll('.indicator');
+        const prevBtn = document.querySelector('.slide-btn.prev');
+        const nextBtn = document.querySelector('.slide-btn.next');
+        const slideshow = document.querySelector('.header-slideshow');
+
+        // Mark slideshow as loaded
+        setTimeout(() => {
+            slideshow.classList.add('loaded');
+        }, 1000);
+
+        function showSlide(index) {
+            // Remove active class from all slides and indicators
+            slides.forEach(slide => slide.classList.remove('active'));
+            mobileSlides.forEach(slide => slide.classList.remove('active'));
+            indicators.forEach(indicator => indicator.classList.remove('active'));
+
+            // Add active class to current slide and indicator
+            if (slides[index]) slides[index].classList.add('active');
+            if (mobileSlides[index]) mobileSlides[index].classList.add('active');
+            if (indicators[index]) indicators[index].classList.add('active');
+
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            const totalSlides = Math.max(slides.length, mobileSlides.length);
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            const totalSlides = Math.max(slides.length, mobileSlides.length);
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        // Event listeners for navigation buttons
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        // Event listeners for indicators
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => showSlide(index));
+            
+            // Keyboard accessibility for indicators
+            indicator.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    showSlide(index);
+                }
+            });
+        });
+
+        // Auto-play slideshow
+        let autoPlay = setInterval(nextSlide, 5000);
+
+        // Pause auto-play on hover
+        slideshow.addEventListener('mouseenter', () => {
+            clearInterval(autoPlay);
+        });
+
+        // Resume auto-play when mouse leaves
+        slideshow.addEventListener('mouseleave', () => {
+            autoPlay = setInterval(nextSlide, 5000);
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                prevSlide();
+                clearInterval(autoPlay);
+                autoPlay = setInterval(nextSlide, 5000);
+            } else if (e.key === 'ArrowRight') {
+                nextSlide();
+                clearInterval(autoPlay);
+                autoPlay = setInterval(nextSlide, 5000);
+            }
+        });
+
+        // Touch/swipe support for mobile
+        let startX = 0;
+        let endX = 0;
+        let startTime = 0;
+
+        slideshow.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            startTime = new Date().getTime();
+        }, { passive: true });
+
+        slideshow.addEventListener('touchend', (e) => {
+            endX = e.changedTouches[0].clientX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const threshold = 50;
+            const timeThreshold = 300;
+            const diff = startX - endX;
+            const timeDiff = new Date().getTime() - startTime;
+
+            if (Math.abs(diff) > threshold && timeDiff < timeThreshold) {
+                clearInterval(autoPlay);
+                
+                if (diff > 0) {
+                    nextSlide(); // Swipe left - next slide
+                } else {
+                    prevSlide(); // Swipe right - previous slide
+                }
+                
+                // Resume auto-play after swipe
+                autoPlay = setInterval(nextSlide, 5000);
+            }
+        }
+
+        // Visibility API to pause slideshow when tab is not active
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                clearInterval(autoPlay);
+            } else {
+                autoPlay = setInterval(nextSlide, 5000);
+            }
+        });
+
+        // Preload images for better performance
+        function preloadImages() {
+            const allImages = [...slides, ...mobileSlides];
+            allImages.forEach(img => {
+                const imageObj = new Image();
+                imageObj.src = img.src;
+            });
+        }
+
+        // Initialize slideshow
+        document.addEventListener('DOMContentLoaded', () => {
+            preloadImages();
+            showSlide(0);
+        });
+    </script>
+</body>
+</html>

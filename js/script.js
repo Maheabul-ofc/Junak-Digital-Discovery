@@ -1351,8 +1351,6 @@ function closeModal() {
   document.body.style.overflow = "auto";
 }
 
-
-
 function createTierCard(tier) {
   const card = document.createElement("div");
   card.className = "tier-card";
@@ -1401,6 +1399,158 @@ function createTierCard(tier) {
   return card;
 }
 
+// course image sliding
+
+// Slideshow functionality
+let currentSlide = 0;
+const slides = document.querySelectorAll(".slide-item");
+const mobileSlides = document.querySelectorAll(".slide-item-mobile");
+const indicators = document.querySelectorAll(".indicator");
+const prevBtn = document.querySelector(".slide-btn.prev");
+const nextBtn = document.querySelector(".slide-btn.next");
+const slideshow = document.querySelector(".header-slideshow");
+
+// Mark slideshow as loaded
+setTimeout(() => {
+  slideshow.classList.add("loaded");
+}, 1000);
+
+function showSlide(index) {
+  // Remove active class from all slides and indicators
+  slides.forEach((slide) => slide.classList.remove("active"));
+  mobileSlides.forEach((slide) => slide.classList.remove("active"));
+  indicators.forEach((indicator) => indicator.classList.remove("active"));
+
+  // Add active class to current slide and indicator
+  if (slides[index]) slides[index].classList.add("active");
+  if (mobileSlides[index]) mobileSlides[index].classList.add("active");
+  if (indicators[index]) indicators[index].classList.add("active");
+
+  currentSlide = index;
+}
+
+function nextSlide() {
+  const totalSlides = Math.max(slides.length, mobileSlides.length);
+  currentSlide = (currentSlide + 1) % totalSlides;
+  showSlide(currentSlide);
+}
+
+function prevSlide() {
+  const totalSlides = Math.max(slides.length, mobileSlides.length);
+  currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+  showSlide(currentSlide);
+}
+
+// Event listeners for navigation buttons
+nextBtn.addEventListener("click", nextSlide);
+prevBtn.addEventListener("click", prevSlide);
+
+// Event listeners for indicators
+indicators.forEach((indicator, index) => {
+  indicator.addEventListener("click", () => showSlide(index));
+
+  // Keyboard accessibility for indicators
+  indicator.addEventListener("keypress", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      showSlide(index);
+    }
+  });
+});
+
+// Auto-play slideshow
+let autoPlay = setInterval(nextSlide, 5000);
+
+// Pause auto-play on hover
+slideshow.addEventListener("mouseenter", () => {
+  clearInterval(autoPlay);
+});
+
+// Resume auto-play when mouse leaves
+slideshow.addEventListener("mouseleave", () => {
+  autoPlay = setInterval(nextSlide, 5000);
+});
+
+// Keyboard navigation
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowLeft") {
+    prevSlide();
+    clearInterval(autoPlay);
+    autoPlay = setInterval(nextSlide, 5000);
+  } else if (e.key === "ArrowRight") {
+    nextSlide();
+    clearInterval(autoPlay);
+    autoPlay = setInterval(nextSlide, 5000);
+  }
+});
+
+// Touch/swipe support for mobile
+let startX = 0;
+let endX = 0;
+let startTime = 0;
+
+slideshow.addEventListener(
+  "touchstart",
+  (e) => {
+    startX = e.touches[0].clientX;
+    startTime = new Date().getTime();
+  },
+  { passive: true }
+);
+
+slideshow.addEventListener(
+  "touchend",
+  (e) => {
+    endX = e.changedTouches[0].clientX;
+    handleSwipe();
+  },
+  { passive: true }
+);
+
+function handleSwipe() {
+  const threshold = 50;
+  const timeThreshold = 300;
+  const diff = startX - endX;
+  const timeDiff = new Date().getTime() - startTime;
+
+  if (Math.abs(diff) > threshold && timeDiff < timeThreshold) {
+    clearInterval(autoPlay);
+
+    if (diff > 0) {
+      nextSlide(); // Swipe left - next slide
+    } else {
+      prevSlide(); // Swipe right - previous slide
+    }
+
+    // Resume auto-play after swipe
+    autoPlay = setInterval(nextSlide, 5000);
+  }
+}
+
+// Visibility API to pause slideshow when tab is not active
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    clearInterval(autoPlay);
+  } else {
+    autoPlay = setInterval(nextSlide, 5000);
+  }
+});
+
+// Preload images for better performance
+function preloadImages() {
+  const allImages = [...slides, ...mobileSlides];
+  allImages.forEach((img) => {
+    const imageObj = new Image();
+    imageObj.src = img.src;
+  });
+}
+
+// Initialize slideshow
+document.addEventListener("DOMContentLoaded", () => {
+  preloadImages();
+  showSlide(0);
+});
+
+// Home section image sliding
 
 
-// image sliding

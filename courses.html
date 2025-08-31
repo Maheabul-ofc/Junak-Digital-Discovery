@@ -21,6 +21,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="course.css">
+    
 </head>
 
 <body>
@@ -57,28 +58,43 @@
         <section class="page-header courses-header">
             <div class="header-slideshow">
                 <!-- Desktop Images -->
-                <div class="slide-item active" data-bg="images/Course_heder_laptop.png"></div>
-                <div class="slide-item" data-bg="images/cs_hader_lp.png"></div>
-                <div class="slide-item" data-bg="images/30day.png"></div>
-                <div class="slide-item" data-bg="images/Nature.jpg"></div>
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80"
+                    class="slide-item active" alt="Digital Learning Environment">
 
-                <!-- Mobile Images (optional) -->
-                <div class="slide-item-mobile active" data-bg="images/AI-Marketing.png"></div>
-                <div class="slide-item-mobile" data-bg="images/course-header-mobile-2.jpg"></div>
-                <div class="slide-item-mobile" data-bg="images/course-header-mobile-3.jpg"></div>
-                <div class="slide-item-mobile" data-bg="images/course-header-mobile-4.jpg"></div>
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                    class="slide-item" alt="Modern Computer Lab">
 
-                <!-- ✅ Prev/Next Buttons -->
-                <button class="slide-btn prev">&#10094;</button>
-                <button class="slide-btn next">&#10095;</button>
+                <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1526&q=80"
+                    class="slide-item" alt="Students Learning">
+
+                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                    class="slide-item" alt="AI and Technology">
+
+                <!-- Mobile Images -->
+                <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80"
+                    class="slide-item-mobile active" alt="AI Marketing Mobile">
+
+                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                    class="slide-item-mobile" alt="Digital Marketing Mobile">
+
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1415&q=80"
+                    class="slide-item-mobile" alt="Business Analytics Mobile">
+
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80"
+                    class="slide-item-mobile" alt="Team Collaboration Mobile">
+
+                <!-- Prev/Next Buttons -->
+                <button class="slide-btn prev" aria-label="Previous slide">&#10094;</button>
+                <button class="slide-btn next" aria-label="Next slide">&#10095;</button>
             </div>
 
             <!-- Slide indicators -->
             <div class="slide-indicators">
-                <span class="indicator active" data-slide="0"></span>
-                <span class="indicator" data-slide="1"></span>
-                <span class="indicator" data-slide="2"></span>
-                <span class="indicator" data-slide="3"></span>
+                <span class="indicator active" data-slide="0" role="button" tabindex="0"
+                    aria-label="Go to slide 1"></span>
+                <span class="indicator" data-slide="1" role="button" tabindex="0" aria-label="Go to slide 2"></span>
+                <span class="indicator" data-slide="2" role="button" tabindex="0" aria-label="Go to slide 3"></span>
+                <span class="indicator" data-slide="3" role="button" tabindex="0" aria-label="Go to slide 4"></span>
             </div>
         </section>
 
@@ -90,28 +106,28 @@
                     <article class="upar-card-new" data-course="digital-marketing">
                         <h3>Digital Marketing</h3>
                         <button class="enroll-btn-new" data-course="Digital Marketing"
-                                aria-label="Learn more about Digital Marketing course">Learn more</button>
+                            aria-label="Learn more about Digital Marketing course">Learn more</button>
                     </article>
 
                     <!-- AI Course -->
                     <article class="upar-card-new" data-course="ai">
                         <h3>AI</h3>
-                       <button class="enroll-btn-new" data-course="Artificial Intelligence"
-                                aria-label="Learn more about Artificial Intelligence course">Learn more</button>
+                        <button class="enroll-btn-new" data-course="Artificial Intelligence"
+                            aria-label="Learn more about Artificial Intelligence course">Learn more</button>
                     </article>
 
                     <!-- Mass Communication Course -->
                     <article class="upar-card-new" data-course="mass-communication">
                         <h3>Mass Communication</h3>
-                       <button class="enroll-btn-new" data-course="Mass Communication"
-                                aria-label="Learn more about Mass Communication course">Learn more</button>
+                        <button class="enroll-btn-new" data-course="Mass Communication"
+                            aria-label="Learn more about Mass Communication course">Learn more</button>
                     </article>
 
                     <!-- Entrepreneurship Course -->
                     <article class="upar-card-new" data-course="entrepreneurship">
                         <h3>Entrepreneurship</h3>
-                      <button class="enroll-btn-new" data-course="Entrepreneurship"
-                                aria-label="Learn more about Entrepreneurship course">Learn more</button>
+                        <button class="enroll-btn-new" data-course="Entrepreneurship"
+                            aria-label="Learn more about Entrepreneurship course">Learn more</button>
                     </article>
                 </div>
             </div>
