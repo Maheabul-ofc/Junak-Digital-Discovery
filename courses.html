@@ -21,12 +21,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="course.css">
-    
+    <link rel="stylesheet" href="view-details.css">
+
 </head>
 
 <body>
     <a href="#main-content" class="skip-link" aria-label="Skip to main content">Skip to main content</a>
-    <header role="banner">
+    <header role="banner" class="header">
         <nav class="navbar" role="navigation" aria-label="Main navigation">
             <div class="nav-container">
                 <div class="logo-container">
@@ -43,6 +44,8 @@
                             class="nav-link active">Courses</a></li>
                     <li role="none"><a href="about.html" role="menuitem" class="nav-link">About Us</a></li>
                     <li role="none"><a href="gallery.html" role="menuitem" class="nav-link">Gallery</a></li>
+                    <li role="none"><a href="prospectus.pdf" role="menuitem" class="nav-link" download>Download
+                            Prospectus</a></li>
                 </ul>
 
                 <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
@@ -191,7 +194,7 @@
 
 
         <section class="courses-section" aria-label="Available courses">
-            <div c lass="container">
+            <div class="container">
                 <h2 class="course-section-tittle">Our Courses</h2>
                 <div class="courses-grid">
                     <!-- Course Card 1 -->
@@ -199,12 +202,15 @@
                         <img src="images/AI-Marketing.png" alt="Digital Marketing Course" class="course-image">
                         <div class="course-content">
                             <h3>Certificate in Digital Marketing Fundamentals</h3>
-                            <h5>(3 Months)</h5>
                             <p class="course-price">₹14,999</p>
                             <p class="course-description">Master the fundamentals of digital marketing including SEO,
                                 SEM, and analytics.</p>
-                            <button class="enroll-btn" data-course="Digital Marketing"
-                                aria-label="Enroll in Digital Marketing course">Enroll Now</button>
+                            <div class="course-buttons">
+                                <button class="view-details-btn" data-course="Digital Marketing"
+                                    aria-label="View Digital Marketing course details">View Details</button>
+                                <button class="enroll-btn" data-course="Digital Marketing"
+                                    aria-label="Enroll in Digital Marketing course">Enroll Now</button>
+                            </div>
                         </div>
                     </article>
 
@@ -216,21 +222,29 @@
                             <p class="course-price">₹12,000</p>
                             <p class="course-description">Learn to create engaging content and grow your social media
                                 presence effectively.</p>
-                            <button class="enroll-btn" data-course="Social Media Marketing"
-                                aria-label="Enroll in Social Media Marketing course">Enroll Now</button>
+                            <div class="course-buttons">
+                                <button class="view-details-btn" data-course="Social Media Marketing"
+                                    aria-label="View Social Media Marketing course details">View Details</button>
+                                <button class="enroll-btn" data-course="Social Media Marketing"
+                                    aria-label="Enroll in Social Media Marketing course">Enroll Now</button>
+                            </div>
                         </div>
                     </article>
 
                     <!-- Course Card 3 -->
                     <article class="course-card" data-course="Website Design">
-                        <img src="images/course-web-design.jpg" alt="Website Design Course" class="course-image">
+                        <img src="images/website design.png" alt="Website Design Course" class="course-image">
                         <div class="course-content">
                             <h3>Website Design</h3>
                             <p class="course-price">₹18,000</p>
                             <p class="course-description">Create stunning, responsive websites using modern design
                                 principles and tools.</p>
-                            <button class="enroll-btn" data-course="Website Design"
-                                aria-label="Enroll in Website Design course">Enroll Now</button>
+                            <div class="course-buttons">
+                                <button class="view-details-btn" data-course="Website Design"
+                                    aria-label="View Website Design course details">View Details</button>
+                                <button class="enroll-btn" data-course="Website Design"
+                                    aria-label="Enroll in Website Design course">Enroll Now</button>
+                            </div>
                         </div>
                     </article>
 
@@ -243,8 +257,12 @@
                             <p class="course-price">₹25,000</p>
                             <p class="course-description">Leverage artificial intelligence to enhance your marketing
                                 strategies and results.</p>
-                            <button class="enroll-btn" data-course="AI-Powered Digital Marketing"
-                                aria-label="Enroll in AI-Powered Digital Marketing course">Enroll Now</button>
+                            <div class="course-buttons">
+                                <button class="view-details-btn" data-course="AI-Powered Digital Marketing"
+                                    aria-label="View AI-Powered Digital Marketing course details">View Details</button>
+                                <button class="enroll-btn" data-course="AI-Powered Digital Marketing"
+                                    aria-label="Enroll in AI-Powered Digital Marketing course">Enroll Now</button>
+                            </div>
                         </div>
                     </article>
 
@@ -256,8 +274,12 @@
                             <p class="course-price">₹20,000</p>
                             <p class="course-description">Learn to build and manage powerful brands that resonate with
                                 your target audience.</p>
-                            <button class="enroll-btn" data-course="Brand Building Course"
-                                aria-label="Enroll in Brand Building course">Enroll Now</button>
+                            <div class="course-buttons">
+                                <button class="view-details-btn" data-course="Brand Building Course"
+                                    aria-label="View Brand Building course details">View Details</button>
+                                <button class="enroll-btn" data-course="Brand Building Course"
+                                    aria-label="Enroll in Brand Building course">Enroll Now</button>
+                            </div>
                         </div>
                     </article>
 
@@ -269,13 +291,64 @@
                             <p class="course-price">₹30,000</p>
                             <p class="course-description">Comprehensive AI training covering machine learning,
                                 automation, and practical applications.</p>
-                            <button class="enroll-btn" data-course="AI Master Course"
-                                aria-label="Enroll in AI Master Course">Enroll Now</button>
+                            <div class="course-buttons">
+                                <button class="view-details-btn" data-course="AI Master Course"
+                                    aria-label="View AI Master Course details">View Details</button>
+                                <button class="enroll-btn" data-course="AI Master Course"
+                                    aria-label="Enroll in AI Master Course">Enroll Now</button>
+                            </div>
                         </div>
                     </article>
                 </div>
             </div>
         </section>
+
+        <!-- Modal for Course Details -->
+        <div id="courseModal" class="modal"
+            style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(46, 139, 87, 0.15); backdrop-filter: blur(5px);">
+            <div
+                style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); margin: 5% auto; padding: 40px; border-radius: 20px; width: 90%; max-width: 650px; max-height: 80vh; overflow-y: auto; position: relative; border: 3px solid #2E8B57; box-shadow: 0 20px 40px rgba(46, 139, 87, 0.2);">
+
+                <button aria-label="Close modal"
+                    style="position: absolute; right: 25px; top: 25px; font-size: 28px; font-weight: bold; color: #DC143C; cursor: pointer; background: none; border: 2px solid #DC143C; border-radius: 50%; width: 45px; height: 45px; line-height: 40px; text-align: center; transition: all 0.3s ease;"
+                    onmouseover="this.style.backgroundColor='#DC143C'; this.style.color='#fff';"
+                    onmouseout="this.style.backgroundColor='transparent'; this.style.color='#DC143C';">
+                    &times;
+                </button>
+
+
+                <h3 id="modalTitle"
+                    style="color: #2E8B57; margin-bottom: 25px; font-size: 2rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">
+                    Course Details
+                </h3>
+
+                <div id="modalBody">
+                    <!-- Course topics will be populated here -->
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li
+                            style="padding: 15px 20px; margin-bottom: 8px; background: white; border-radius: 12px; border-left: 5px solid #2E8B57; display: flex; align-items: center; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); transition: all 0.3s ease;">
+                            <span
+                                style="color: #2E8B57; font-weight: bold; margin-right: 15px; font-size: 1.2rem; background: #f0f8f0; border-radius: 50%; width: 25px; height: 25px; display: flex; align-items: center; justify-content: center;">✓</span>
+                            Example Topic 1
+                        </li>
+                        <li
+                            style="padding: 15px 20px; margin-bottom: 8px; background: white; border-radius: 12px; border-left: 5px solid #2E8B57; display: flex; align-items: center; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); transition: all 0.3s ease;">
+                            <span
+                                style="color: #2E8B57; font-weight: bold; margin-right: 15px; font-size: 1.2rem; background: #f0f8f0; border-radius: 50%; width: 25px; height: 25px; display: flex; align-items: center; justify-content: center;">✓</span>
+                            Example Topic 2
+                        </li>
+                    </ul>
+                </div>
+
+                <div style="margin-top: 35px; text-align: center;">
+                    <button id="modalEnrollBtn"
+                        style="padding: 12px 25px; border-radius: 8px; background: #2E8B57; color: white; font-size: 1rem; border: none; cursor: pointer; transition: all 0.3s ease;">
+                        Enroll Now
+                    </button>
+                </div>
+            </div>
+
+        </div>
     </main>
 
     <!-- Enrollment Modal -->
@@ -396,7 +469,9 @@
     </a>
 
 
+
     <script src="js/script.js"></script>
+
 </body>
 
 </html>

@@ -2462,7 +2462,7 @@ footer {
 }
 
 
-/* Topic */
+/*------------------------------------ Topic----------------------------------- */
 .course-details-modal {
     display: none;
     position: fixed;
@@ -2859,7 +2859,10 @@ footer {
     /* pushes button to bottom */
 }
 
-/* why choose us */
+
+
+
+/*------------------------- why choose us --------------------------------*/
 .why-choose-us {
     padding: 100px 0;
     background-color: #ffffff;

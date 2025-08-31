@@ -2726,365 +2726,417 @@ footer {
 
 /* course form styling */
 /* ===== SLIDESHOW CONTAINER ===== */
-        .page-header.courses-header {
-            position: relative;
-            height: 70vh;
-            min-height: 500px;
-            max-height: 800px;
-            overflow: hidden;
-            background: linear-gradient(135deg, #2d8659 0%, #e85a5a 100%);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
+.page-header.courses-header {
+    position: relative;
+    height: 70vh;
+    min-height: 500px;
+    max-height: 800px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #2d8659 0%, #e85a5a 100%);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
 
-        .header-slideshow {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            border-radius: 0 0 20px 20px;
-        }
+.header-slideshow {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 0 0 20px 20px;
+}
 
-        /* ===== SLIDE IMAGES ===== */
-        .slide-item,
-        .slide-item-mobile {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0;
-            transition: all 1.2s cubic-bezier(0.4, 0.0, 0.2, 1);
-            transform: scale(1.1);
-            filter: brightness(0.8);
-        }
+/* ===== SLIDE IMAGES ===== */
+.slide-item,
+.slide-item-mobile {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: all 1.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+    transform: scale(1.1);
+    filter: brightness(0.8);
+}
 
-        .slide-item.active,
-        .slide-item-mobile.active {
-            opacity: 1;
-            transform: scale(1);
-            filter: brightness(0.9);
-        }
+.slide-item.active,
+.slide-item-mobile.active {
+    opacity: 1;
+    transform: scale(1);
+    filter: brightness(0.9);
+}
 
-        /* Hide mobile images on desktop */
-        .slide-item-mobile {
-            display: none;
-        }
+/* Hide mobile images on desktop */
+.slide-item-mobile {
+    display: none;
+}
 
-        /* Overlay for better text contrast */
-        .header-slideshow::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(
-                135deg,
-                rgba(45, 134, 89, 0.3) 0%,
-                transparent 50%,
-                rgba(232, 90, 90, 0.3) 100%
-            );
-            z-index: 2;
-            pointer-events: none;
-        }
+/* Overlay for better text contrast */
+.header-slideshow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg,
+            rgba(45, 134, 89, 0.3) 0%,
+            transparent 50%,
+            rgba(232, 90, 90, 0.3) 100%);
+    z-index: 2;
+    pointer-events: none;
+}
 
-        /* ===== NAVIGATION BUTTONS ===== */
-        .slide-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.15);
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 18px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
-            backdrop-filter: blur(15px);
-            z-index: 10;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        }
+/* ===== NAVIGATION BUTTONS ===== */
+.slide-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+    backdrop-filter: blur(15px);
+    z-index: 10;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
 
-        .slide-btn:hover {
-            background: rgba(255, 255, 255, 0.25);
-            border-color: rgba(255, 255, 255, 0.5);
-            transform: translateY(-50%) scale(1.1);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
-        }
+.slide-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
 
-        .slide-btn:active {
-            transform: translateY(-50%) scale(0.95);
-        }
+.slide-btn:active {
+    transform: translateY(-50%) scale(0.95);
+}
 
-        .slide-btn.prev {
-            left: 30px;
-        }
+.slide-btn.prev {
+    left: 30px;
+}
 
-        .slide-btn.next {
-            right: 30px;
-        }
+.slide-btn.next {
+    right: 30px;
+}
 
-        /* ===== SLIDE INDICATORS ===== */
-        .slide-indicators {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 15px;
-            z-index: 10;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 10px 20px;
-            border-radius: 30px;
-            backdrop-filter: blur(15px);
-        }
+/* ===== SLIDE INDICATORS ===== */
+.slide-indicators {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px 20px;
+    border-radius: 30px;
+    backdrop-filter: blur(15px);
+}
 
-        .indicator {
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.4);
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
-            border: 2px solid transparent;
-            position: relative;
-        }
+.indicator {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+    border: 2px solid transparent;
+    position: relative;
+}
 
-        .indicator:hover {
-            background: rgba(255, 255, 255, 0.6);
-            transform: scale(1.2);
-        }
+.indicator:hover {
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(1.2);
+}
 
-        .indicator.active {
-            background: #2d8659;
-            border-color: white;
-            transform: scale(1.4);
-            box-shadow: 0 0 0 3px rgba(45, 134, 89, 0.3);
-        }
+.indicator.active {
+    background: #2d8659;
+    border-color: white;
+    transform: scale(1.4);
+    box-shadow: 0 0 0 3px rgba(45, 134, 89, 0.3);
+}
 
-        .indicator.active::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 6px;
-            height: 6px;
-            background: white;
-            border-radius: 50%;
-        }
+.indicator.active::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+}
 
-        /* ===== SLIDE CONTENT OVERLAY ===== */
-        .slide-content {
-            position: absolute;
-            bottom: 80px;
-            left: 50px;
-            z-index: 5;
-            color: white;
-            max-width: 500px;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
+/* ===== SLIDE CONTENT OVERLAY ===== */
+.slide-content {
+    position: absolute;
+    bottom: 80px;
+    left: 50px;
+    z-index: 5;
+    color: white;
+    max-width: 500px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
 
-        .slide-item.active + .slide-content,
-        .slide-item-mobile.active + .slide-content {
-            opacity: 1;
-            transform: translateY(0);
-        }
+.slide-item.active+.slide-content,
+.slide-item-mobile.active+.slide-content {
+    opacity: 1;
+    transform: translateY(0);
+}
 
-        .slide-content h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
+.slide-content h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
 
-        .slide-content p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-        }
+.slide-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
 
-        /* ===== RESPONSIVE DESIGN ===== */
-        @media (max-width: 768px) {
-            .page-header.courses-header {
-                height: 60vh;
-                min-height: 400px;
-                padding: 0;
-            }
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+    .page-header.courses-header {
+        height: 60vh;
+        min-height: 400px;
+        padding: 0;
+    }
 
-            /* Show mobile images, hide desktop */
-            .slide-item {
-                display: none;
-            }
+    /* Show mobile images, hide desktop */
+    .slide-item {
+        display: none;
+    }
 
-            .slide-item-mobile {
-                display: block;
-            }
+    .slide-item-mobile {
+        display: block;
+    }
 
-            .slide-btn {
-                width: 50px;
-                height: 50px;
-                font-size: 16px;
-            }
+    .slide-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 16px;
+    }
 
-            .slide-btn.prev {
-                left: 20px;
-            }
+    .slide-btn.prev {
+        left: 20px;
+    }
 
-            .slide-btn.next {
-                right: 20px;
-            }
+    .slide-btn.next {
+        right: 20px;
+    }
 
-            .slide-indicators {
-                bottom: 20px;
-                gap: 12px;
-                padding: 8px 16px;
-            }
+    .slide-indicators {
+        bottom: 20px;
+        gap: 12px;
+        padding: 8px 16px;
+    }
 
-            .indicator {
-                width: 12px;
-                height: 12px;
-            }
+    .indicator {
+        width: 12px;
+        height: 12px;
+    }
 
-            .slide-content {
-                left: 30px;
-                bottom: 60px;
-                max-width: 300px;
-            }
+    .slide-content {
+        left: 30px;
+        bottom: 60px;
+        max-width: 300px;
+    }
 
-            .slide-content h2 {
-                font-size: 1.8rem;
-            }
+    .slide-content h2 {
+        font-size: 1.8rem;
+    }
 
-            .slide-content p {
-                font-size: 1rem;
-            }
-        }
+    .slide-content p {
+        font-size: 1rem;
+    }
+}
 
-        @media (max-width: 480px) {
-            .page-header.courses-header {
-                height: 50vh;
-                min-height: 350px;
-            }
+@media (max-width: 480px) {
+    .page-header.courses-header {
+        height: 50vh;
+        min-height: 350px;
+    }
 
-            .slide-btn {
-                width: 45px;
-                height: 45px;
-                font-size: 14px;
-            }
+    .slide-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 14px;
+    }
 
-            .slide-btn.prev {
-                left: 15px;
-            }
+    .slide-btn.prev {
+        left: 15px;
+    }
 
-            .slide-btn.next {
-                right: 15px;
-            }
+    .slide-btn.next {
+        right: 15px;
+    }
 
-            .slide-indicators {
-                gap: 10px;
-                padding: 6px 12px;
-            }
+    .slide-indicators {
+        gap: 10px;
+        padding: 6px 12px;
+    }
 
-            .indicator {
-                width: 10px;
-                height: 10px;
-            }
+    .indicator {
+        width: 10px;
+        height: 10px;
+    }
 
-            .slide-content {
-                left: 20px;
-                bottom: 50px;
-                max-width: 250px;
-            }
+    .slide-content {
+        left: 20px;
+        bottom: 50px;
+        max-width: 250px;
+    }
 
-            .slide-content h2 {
-                font-size: 1.5rem;
-            }
+    .slide-content h2 {
+        font-size: 1.5rem;
+    }
 
-            .slide-content p {
-                font-size: 0.9rem;
-            }
-        }
+    .slide-content p {
+        font-size: 0.9rem;
+    }
+}
 
-        /* ===== ACCESSIBILITY ===== */
-        .slide-btn:focus,
-        .indicator:focus {
-            outline: 3px solid #2d8659;
-            outline-offset: 3px;
-        }
+/* ===== ACCESSIBILITY ===== */
+.slide-btn:focus,
+.indicator:focus {
+    outline: 3px solid #2d8659;
+    outline-offset: 3px;
+}
 
-        /* ===== ANIMATIONS ===== */
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(100px) scale(1.1);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0) scale(1);
-            }
-        }
+/* ===== ANIMATIONS ===== */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px) scale(1.1);
+    }
 
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-100px) scale(1.1);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0) scale(1);
-            }
-        }
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
 
-        .slide-item.active {
-            animation: slideInRight 1.2s cubic-bezier(0.4, 0.0, 0.2, 1);
-        }
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px) scale(1.1);
+    }
 
-        .slide-item-mobile.active {
-            animation: slideInLeft 1.2s cubic-bezier(0.4, 0.0, 0.2, 1);
-        }
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
 
-        /* Loading state */
-        .header-slideshow::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 40px;
-            height: 40px;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            border-top: 3px solid white;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            z-index: 1;
-        }
+.slide-item.active {
+    animation: slideInRight 1.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
 
-        .header-slideshow.loaded::after {
-            display: none;
-        }
+.slide-item-mobile.active {
+    animation: slideInLeft 1.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
 
-        @keyframes spin {
-            0% { transform: translate(-50%, -50%) rotate(0deg); }
-            100% { transform: translate(-50%, -50%) rotate(360deg); }
-        }
+/* Loading state */
+.header-slideshow::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    z-index: 1;
+}
 
-        /* Touch indicators for mobile */
-        @media (hover: none) and (pointer: coarse) {
-            .slide-btn {
-                opacity: 0.8;
-            }
-            
-            .slide-indicators {
-                padding: 12px 24px;
-            }
-        }
+.header-slideshow.loaded::after {
+    display: none;
+}
+
+@keyframes spin {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* Touch indicators for mobile */
+@media (hover: none) and (pointer: coarse) {
+    .slide-btn {
+        opacity: 0.8;
+    }
+
+    .slide-indicators {
+        padding: 12px 24px;
+    }
+}
+
+/*------------------------- Additional code ---------------------------- */
+
+
+
+
+/* course we offer styling */
+.courses-grid-main {
+    display: flex;
+    gap: 20px;
+    /* space between cards */
+}
+
+.course-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* pushes title & button apart */
+    text-align: center;
+    padding: 20px;
+    border-radius: 12px;
+    background: #fff;
+    /* or your color */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.course-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /* make all cards equal height */
+    justify-content: space-between;
+    /* ensures button stays aligned */
+}
+
+.course-content h3 {
+    margin-bottom: auto;
+    /* pushes button to bottom */
+}
+
+
+
+
+
+
+

@@ -1553,4 +1553,632 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Home section image sliding
 
+//---------------------------- Course view details button --------------------------//
+// Integrated Course Details System
+// This replaces the conflicting modal code in your existing script.js
 
+document.addEventListener("DOMContentLoaded", function () {
+  // Initialize all existing functionality
+  initMobileMenu();
+  initEnrollmentForm();
+  initGallery();
+  initSmoothScrolling();
+  initFormValidation();
+  initBackToTop();
+  initDemoModal();
+  initTestimonialSlider();
+  initAutoHideNavbar();
+  initFloatingDemoButton();
+  initEnhancedCounsellingPopup();
+  initResponsiveImages();
+  initSmoothScrollWithNavbar();
+  initPerformanceOptimizations();
+
+  // Initialize integrated course details system
+  initIntegratedCourseDetailsSystem();
+});
+
+// Integrated Course Details System
+function initIntegratedCourseDetailsSystem() {
+  // Course details data for "View Details" modal
+  const courseDetails = {
+    "Digital Marketing": {
+      topics: [
+        "Search Engine Optimization (SEO) Fundamentals",
+        "Google Ads & Paid Search Marketing",
+        "Social Media Marketing Strategies",
+        "Email Marketing Campaigns",
+        "Content Marketing & Copywriting",
+        "Google Analytics & Data Analysis",
+        "Conversion Rate Optimization",
+        "Marketing Automation Tools",
+        "Digital Marketing Strategy Planning",
+        "ROI Measurement & Reporting",
+      ],
+    },
+    "Social Media Marketing": {
+      topics: [
+        "Platform-Specific Content Strategies",
+        "Instagram Marketing & Stories",
+        "Facebook Advertising & Business Manager",
+        "LinkedIn Marketing for B2B",
+        "Twitter/X Marketing Techniques",
+        "YouTube Channel Growth Strategies",
+        "Influencer Marketing & Collaborations",
+        "Social Media Analytics & Insights",
+        "Community Management",
+        "Crisis Management on Social Platforms",
+      ],
+    },
+    "Website Design": {
+      topics: [
+        "HTML5 & CSS3 Fundamentals",
+        "Responsive Web Design Principles",
+        "User Experience (UX) Design",
+        "User Interface (UI) Design",
+        "Figma & Design Tools",
+        "JavaScript Basics for Interactivity",
+        "WordPress Development",
+        "Web Accessibility Standards",
+        "Performance Optimization",
+        "Domain & Hosting Management",
+      ],
+    },
+    "AI-Powered Digital Marketing": {
+      topics: [
+        "Introduction to AI in Marketing",
+        "ChatGPT for Content Creation",
+        "AI-Powered SEO Tools & Strategies",
+        "Automated Social Media Management",
+        "AI Analytics & Predictive Modeling",
+        "Personalization & Customer Segmentation",
+        "AI Chatbots for Customer Service",
+        "Programmatic Advertising with AI",
+        "Voice Search Optimization",
+        "AI Ethics in Marketing",
+      ],
+    },
+    "Brand Building Course": {
+      topics: [
+        "Brand Identity & Visual Design",
+        "Brand Strategy Development",
+        "Target Audience Research & Personas",
+        "Brand Positioning & Messaging",
+        "Logo Design & Brand Guidelines",
+        "Brand Voice & Tone Development",
+        "Digital Brand Management",
+        "Brand Reputation Management",
+        "Brand Storytelling Techniques",
+        "Brand Consistency Across Channels",
+      ],
+    },
+    "AI Master Course": {
+      topics: [
+        "Machine Learning Fundamentals",
+        "Python Programming for AI",
+        "Data Science & Analytics",
+        "Natural Language Processing (NLP)",
+        "Computer Vision Applications",
+        "Deep Learning & Neural Networks",
+        "AI Model Development & Training",
+        "AI Automation Tools & Workflows",
+        "AI Ethics & Responsible Development",
+        "Real-World AI Project Implementation",
+      ],
+    },
+  };
+
+  // Course data for tier-based modal (for "Learn more" buttons)
+  const courseData = {
+    "Digital Marketing": {
+      title: "Digital Marketing Courses",
+      tiers: [
+        {
+          title: "Basic Digital Marketing",
+          duration: "(1 Month)",
+          price: "Rs.1500",
+          modules: [
+            "SEO Fundamentals",
+            "Social Media Marketing",
+            "Google Ads Basics",
+          ],
+        },
+        {
+          title: "Advanced Digital Marketing",
+          duration: "(2 Months)",
+          price: "Rs.2500",
+          modules: [
+            "Advanced SEO",
+            "PPC Campaigns",
+            "Analytics & Reporting",
+            "Content Strategy",
+          ],
+        },
+        {
+          title: "Digital Marketing Mastery",
+          duration: "(3 Months)",
+          price: "Rs.3500",
+          modules: [
+            "Marketing Automation",
+            "Conversion Optimization",
+            "Email Marketing",
+            "Brand Strategy",
+            "ROI Analysis",
+          ],
+        },
+      ],
+    },
+    "Artificial Intelligence": {
+      title: "Artificial Intelligence Courses",
+      tiers: [
+        {
+          title: "AI Fundamentals",
+          duration: "(2 Months)",
+          price: "Rs.2000",
+          modules: [
+            "Introduction to AI",
+            "Machine Learning Basics",
+            "Python Programming",
+            "Data Analysis",
+          ],
+        },
+        {
+          title: "Advanced AI & ML",
+          duration: "(4 Months)",
+          price: "Rs.4000",
+          modules: [
+            "Deep Learning",
+            "Neural Networks",
+            "Computer Vision",
+            "Natural Language Processing",
+            "AI Ethics",
+          ],
+        },
+        {
+          title: "AI Specialization",
+          duration: "(6 Months)",
+          price: "Rs.6000",
+          modules: [
+            "Advanced Deep Learning",
+            "Reinforcement Learning",
+            "AI Research Methods",
+            "Industry Projects",
+            "AI Deployment",
+            "Career Guidance",
+          ],
+        },
+      ],
+    },
+    "Mass Communication": {
+      title: "Mass Communication Courses",
+      tiers: [
+        {
+          title: "Basic Communication",
+          duration: "(1 Month)",
+          price: "Rs.1200",
+          modules: [
+            "Communication Theory",
+            "Media Writing",
+            "Public Speaking",
+            "Journalism Basics",
+          ],
+        },
+        {
+          title: "Advanced Media Studies",
+          duration: "(3 Months)",
+          price: "Rs.2800",
+          modules: [
+            "Broadcast Journalism",
+            "Digital Media",
+            "Public Relations",
+            "Media Ethics",
+            "Video Production",
+          ],
+        },
+        {
+          title: "Media Professional",
+          duration: "(5 Months)",
+          price: "Rs.4500",
+          modules: [
+            "Advanced Journalism",
+            "Media Management",
+            "Documentary Production",
+            "Media Law",
+            "Crisis Communication",
+            "Portfolio Development",
+          ],
+        },
+      ],
+    },
+    Entrepreneurship: {
+      title: "Entrepreneurship Courses",
+      tiers: [
+        {
+          title: "Startup Basics",
+          duration: "(1 Month)",
+          price: "Rs.1800",
+          modules: [
+            "Business Idea Validation",
+            "Market Research",
+            "Business Plan Basics",
+            "Financial Planning",
+          ],
+        },
+        {
+          title: "Business Development",
+          duration: "(3 Months)",
+          price: "Rs.3200",
+          modules: [
+            "Advanced Business Planning",
+            "Funding & Investment",
+            "Marketing Strategy",
+            "Operations Management",
+            "Legal Aspects",
+          ],
+        },
+        {
+          title: "Enterprise Leadership",
+          duration: "(4 Months)",
+          price: "Rs.5000",
+          modules: [
+            "Scaling Strategies",
+            "Team Building",
+            "Innovation Management",
+            "Global Markets",
+            "Exit Strategies",
+            "Mentorship Program",
+          ],
+        },
+      ],
+    },
+  };
+
+  // Get modal elements for both types
+  const topicsModal = document.querySelector("#courseModal.modal"); // Topics modal (View Details)
+  const tiersModal = document.querySelector(".course-details-modal"); // Tiers modal (Learn more)
+
+  // Topics Modal Elements (View Details)
+  if (topicsModal) {
+    const topicsModalTitle = topicsModal.querySelector("#modalTitle");
+    const topicsModalBody = topicsModal.querySelector("#modalBody");
+    const topicsModalEnrollBtn = topicsModal.querySelector("#modalEnrollBtn");
+    const topicsCloseBtn = topicsModal.querySelector(".close-btn");
+
+    // Add event listeners to "View Details" buttons
+    document.querySelectorAll(".view-details-btn").forEach((button) => {
+      button.addEventListener("click", function () {
+        const courseName = this.getAttribute("data-course");
+        showCourseTopics(courseName);
+      });
+    });
+
+    // Topics modal close events
+    if (topicsCloseBtn) {
+      topicsCloseBtn.addEventListener("click", function () {
+        topicsModal.style.display = "none";
+      });
+    }
+
+    topicsModal.addEventListener("click", function (event) {
+      if (event.target === topicsModal) {
+        topicsModal.style.display = "none";
+      }
+    });
+
+    // Topics modal enroll button
+    if (topicsModalEnrollBtn) {
+      topicsModalEnrollBtn.addEventListener("click", function () {
+        const courseName = topicsModalTitle.textContent.replace(
+          " - Course Details",
+          ""
+        );
+        openEnrollmentModal(courseName);
+        topicsModal.style.display = "none";
+      });
+    }
+
+    function showCourseTopics(courseName) {
+      const course = courseDetails[courseName];
+      if (course) {
+        topicsModalTitle.textContent = `${courseName} - Course Details`;
+
+        let topicsHtml =
+          '<h4 style="color: #2E8B57; margin-bottom: 20px;">What you will learn:</h4>';
+        topicsHtml += '<ul class="course-topics">';
+
+        course.topics.forEach((topic) => {
+          topicsHtml += `<li>${topic}</li>`;
+        });
+
+        topicsHtml += "</ul>";
+
+        topicsModalBody.innerHTML = topicsHtml;
+        topicsModal.style.display = "block";
+        document.body.style.overflow = "hidden";
+      }
+    }
+  }
+
+  // Tiers Modal Elements (Learn more)
+  if (tiersModal) {
+    const tiersModalTitle = tiersModal.querySelector("#modalTitle");
+    const courseTiers = tiersModal.querySelector("#courseTiers");
+    const tiersCloseBtn = tiersModal.querySelector("#closeModal");
+
+    // Add event listeners to "Learn more" buttons
+    document.querySelectorAll(".enroll-btn-new").forEach((button) => {
+      button.addEventListener("click", function (e) {
+        e.stopPropagation();
+        const courseName = this.getAttribute("data-course");
+        showCourseTiers(courseName);
+      });
+    });
+
+    // Tiers modal close events
+    if (tiersCloseBtn) {
+      tiersCloseBtn.addEventListener("click", closeTiersModal);
+    }
+
+    tiersModal.addEventListener("click", function (e) {
+      if (e.target === tiersModal) {
+        closeTiersModal();
+      }
+    });
+
+    function showCourseTiers(courseName) {
+      const course = courseData[courseName];
+      if (!course) return;
+
+      tiersModalTitle.textContent = course.title;
+      courseTiers.innerHTML = "";
+
+      course.tiers.forEach((tier) => {
+        const tierCard = createTierCard(tier);
+        courseTiers.appendChild(tierCard);
+      });
+
+      tiersModal.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+
+    function createTierCard(tier) {
+      const card = document.createElement("div");
+      card.className = "tier-card";
+
+      const modules = tier.modules
+        .map((module) => `<div class="module-item">${module}</div>`)
+        .join("");
+
+      card.innerHTML = `
+                <div class="tier-header">
+                    <div class="tier-title">${tier.title}</div>
+                    <div class="tier-duration">${tier.duration}</div>
+                    <div class="tier-price">${tier.price}</div>
+                </div>
+                <div class="tier-modules">
+                    ${modules}
+                </div>
+                <button class="tier-enroll-btn">Enroll Now</button>
+            `;
+
+      const enrollBtn = card.querySelector(".tier-enroll-btn");
+      enrollBtn.addEventListener("click", () => {
+        openEnrollmentModal(tier.title);
+        closeTiersModal();
+      });
+
+      return card;
+    }
+
+    function closeTiersModal() {
+      tiersModal.classList.remove("active");
+      document.body.style.overflow = "auto";
+    }
+  }
+
+  // Regular "Enroll Now" buttons in course cards
+  document
+    .querySelectorAll(".courses-section .enroll-btn")
+    .forEach((button) => {
+      button.addEventListener("click", function () {
+        const courseName = this.getAttribute("data-course");
+        openEnrollmentModal(courseName);
+      });
+    });
+
+  // Unified enrollment modal opener
+  function openEnrollmentModal(courseName) {
+    const enrollmentModal = document.getElementById("enrollmentModal");
+    const courseNameField = document.getElementById("courseName");
+
+    if (enrollmentModal && courseNameField) {
+      courseNameField.value = courseName;
+      enrollmentModal.style.display = "block";
+      enrollmentModal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+
+      const firstInput = enrollmentModal.querySelector('input[type="text"]');
+      if (firstInput) {
+        setTimeout(() => firstInput.focus(), 100);
+      }
+    }
+  }
+
+  // Close modals with Escape key
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      if (topicsModal && topicsModal.style.display === "block") {
+        topicsModal.style.display = "none";
+        document.body.style.overflow = "auto";
+      }
+      if (tiersModal && tiersModal.classList.contains("active")) {
+        tiersModal.classList.remove("active");
+        document.body.style.overflow = "auto";
+      }
+    }
+  });
+}
+// Close Button Fix - Add this to your script.js file
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Initialize close button functionality for all modals
+    initModalCloseFunctionality();
+});
+
+function initModalCloseFunctionality() {
+    // Function to close any modal
+    function closeModal(modal) {
+        if (modal) {
+            modal.style.display = 'none';
+            modal.classList.remove('active');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = 'auto';
+        }
+    }
+
+    // Handle all close buttons - multiple selectors for different modal types
+    const closeButtons = document.querySelectorAll(`
+        .close-btn, 
+        .close-modal, 
+        #closeModal, 
+        .close-popup,
+        .close-image-modal
+    `);
+    
+    console.log('Found close buttons:', closeButtons.length); // Debug line
+
+    closeButtons.forEach((closeBtn, index) => {
+        console.log(`Setting up close button ${index}:`, closeBtn); // Debug line
+        
+        closeBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            console.log('Close button clicked:', this); // Debug line
+            
+            // Find the parent modal
+            let modal = this.closest('.modal');
+            if (!modal) {
+                modal = this.closest('.course-details-modal');
+            }
+            if (!modal) {
+                modal = this.closest('[role="dialog"]');
+            }
+            if (!modal) {
+                // Fallback - find any visible modal
+                modal = document.querySelector('.modal[style*="display: block"]') || 
+                        document.querySelector('.course-details-modal.active') ||
+                        document.querySelector('#courseModal');
+            }
+            
+            console.log('Found modal to close:', modal); // Debug line
+            closeModal(modal);
+        });
+    });
+
+    // Handle clicks outside modal (backdrop click)
+    document.addEventListener('click', function(e) {
+        // Check if clicked element is a modal backdrop
+        if (e.target.classList.contains('modal') || 
+            e.target.classList.contains('course-details-modal')) {
+            closeModal(e.target);
+        }
+    });
+
+    // Handle Escape key for all modals
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            // Find any open modal
+            const openModals = document.querySelectorAll(`
+                .modal[style*="display: block"],
+                .course-details-modal.active,
+                #courseModal[style*="display: block"]
+            `);
+            
+            openModals.forEach(modal => closeModal(modal));
+        }
+    });
+
+    // Specific fix for your course details modals
+    const topicsModal = document.querySelector('#courseModal.modal');
+    const tiersModal = document.querySelector('.course-details-modal');
+    
+    // Topics Modal (View Details) - direct selector fix
+    if (topicsModal) {
+        const topicsCloseBtn = topicsModal.querySelector('.close-btn');
+        if (topicsCloseBtn) {
+            topicsCloseBtn.onclick = function() {
+                console.log('Topics modal close clicked'); // Debug
+                topicsModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            };
+        }
+    }
+
+    // Tiers Modal (Learn More) - direct selector fix
+    if (tiersModal) {
+        const tiersCloseBtn = tiersModal.querySelector('#closeModal');
+        if (tiersCloseBtn) {
+            tiersCloseBtn.onclick = function() {
+                console.log('Tiers modal close clicked'); // Debug
+                tiersModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            };
+        }
+    }
+
+    // Enrollment modal close fix
+    const enrollmentModal = document.getElementById('enrollmentModal');
+    if (enrollmentModal) {
+        const enrollCloseBtn = enrollmentModal.querySelector('.close-modal');
+        if (enrollCloseBtn) {
+            enrollCloseBtn.onclick = function() {
+                console.log('Enrollment modal close clicked'); // Debug
+                enrollmentModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            };
+        }
+    }
+}
+
+// Alternative approach - Force override any existing close button handlers
+function forceCloseButtonFix() {
+    setTimeout(() => {
+        // Get all close buttons again after page is fully loaded
+        const allCloseButtons = document.querySelectorAll('button, [role="button"]');
+        
+        allCloseButtons.forEach(btn => {
+            const buttonText = btn.textContent.trim();
+            const hasCloseClass = btn.className.includes('close');
+            const hasCloseSymbol = buttonText.includes('×') || buttonText.includes('✕');
+            
+            if (hasCloseClass || hasCloseSymbol) {
+                console.log('Force-fixing close button:', btn);
+                
+                // Remove all existing event listeners
+                const newBtn = btn.cloneNode(true);
+                btn.parentNode.replaceChild(newBtn, btn);
+                
+                // Add new event listener
+                newBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    // Close all open modals
+                    const modals = document.querySelectorAll('.modal, .course-details-modal');
+                    modals.forEach(modal => {
+                        modal.style.display = 'none';
+                        modal.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    });
+                });
+            }
+        });
+    }, 1000);
+}
+
+// Run both fixes
+document.addEventListener("DOMContentLoaded", function() {
+    initModalCloseFunctionality();
+    forceCloseButtonFix();
+});
