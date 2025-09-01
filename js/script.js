@@ -16,9 +16,13 @@ document.addEventListener("DOMContentLoaded", function () {
   initFormValidation();
 });
 
+const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
+mobileMenuToggle.addEventListener("click", initMobileMenu);
+
+
 // Mobile Menu Functionality
 function initMobileMenu() {
-  const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
+  
   const navMenu = document.querySelector(".nav-menu");
 
   if (mobileMenuToggle && navMenu) {
@@ -2185,6 +2189,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-// HOME section image sliding
+
 
 
