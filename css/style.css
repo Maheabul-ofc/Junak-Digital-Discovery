@@ -3040,52 +3040,7 @@ footer {
 
 /*---------------------------------- Download Prospectus----------------------------------- */
 /* Download Prospectus button to match your existing BOOK FREE DEMO styling */
-#floatingProspectusBtn {
-    position: fixed;
-    top: 60%;
-    right: 20px;
-    transform: translateY(-50%);
-    z-index: 1000;
-    margin-top: 80px;
-    /* Position below the demo button */
-}
 
-.floating-prospectus-btn {
-    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
-    border: none;
-    border-radius: 25px;
-    padding: 0;
-    box-shadow: 0 4px 15px rgba(238, 90, 36, 0.3);
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.floating-prospectus-btn:hover {
-    background: linear-gradient(135deg, #ee5a24, #ff6b6b);
-    box-shadow: 0 6px 20px rgba(238, 90, 36, 0.4);
-    transform: translateY(-2px);
-}
-
-.prospectus-float-btn {
-    background: none;
-    border: none;
-    color: white;
-    padding: 12px 20px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 14px;
-    text-decoration: none;
-    display: block;
-    width: 100%;
-}
-
-.prospectus-btn-text {
-    display: inline-block;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    white-space: nowrap;
-}
 
 /*-------------------------home  section image sliding -----------------------------------*/
 
@@ -3357,4 +3312,211 @@ footer {
         padding: 0.8rem 2rem;
         font-size: 1rem;
     }
+}
+
+
+.floating-prospectus-btn {
+    position: fixed;
+    top: 70%;
+    right: 15px;
+    z-index: 1000;
+}
+
+.prospectus-float-btn {
+    display: inline-block;
+    background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+    color: white;
+    text-decoration: none;
+    padding: 15px 25px;
+    border-radius: 50px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+    .floating-prospectus-btn {
+        bottom: 20px;
+        right: 15px;
+    }
+
+    .prospectus-float-btn {
+        padding: 10px 15px;
+        font-size: 13px;
+        border-radius: 30px;
+    }
+
+    .prospectus-btn-text {
+        gap: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .floating-prospectus-btn {
+        bottom: 15px;
+        right: 10px;
+    }
+
+    .prospectus-float-btn {
+        padding: 8px 12px;
+        font-size: 12px;
+        border-radius: 25px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .prospectus-btn-text {
+        gap: 4px;
+    }
+}
+
+.prospectus-float-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+}
+
+.prospectus-btn-text {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Method 1: CSS Animation (Recommended) */
+.blink-css {
+    animation: blinkEffect 8s infinite;
+}
+
+@keyframes blinkEffect {
+    0% {
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 1;
+    }
+
+    /* Show for 6 seconds (75% of 8s) */
+    100% {
+        opacity: 0;
+    }
+
+    /* Hide for 2 seconds (25% of 8s) */
+}
+
+/* Method 2: Smooth fade animation */
+.blink-smooth {
+    animation: smoothBlink 8s infinite;
+}
+
+@keyframes smoothBlink {
+    0% {
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 0;
+    }
+
+    /* Start fading */
+    100% {
+        opacity: 0;
+    }
+
+    /* Stay hidden */
+}
+
+/* Method 3: Pulse effect during visible time */
+.blink-pulse {
+    animation: pulseEffect 8s infinite;
+}
+
+@keyframes pulseEffect {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    10% {
+        transform: scale(1.05);
+    }
+
+    20% {
+        transform: scale(1);
+    }
+
+    30% {
+        transform: scale(1.05);
+    }
+
+    40% {
+        transform: scale(1);
+    }
+
+    70% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    75% {
+        opacity: 0;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+}
+
+/* Control buttons */
+.controls {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.control-btn {
+    background: #4a90e2;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.control-btn:hover {
+    background: #357abd;
+}
+
+.control-btn.active {
+    background: #27ae60;
+}
+
+h2 {
+    color: white;
+    text-align: center;
+    margin-bottom: 30px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.info {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 600px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }

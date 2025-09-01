@@ -2194,3 +2194,45 @@ document.addEventListener("DOMContentLoaded", function () {
   initModalCloseFunctionality();
   forceCloseButtonFix();
 });
+
+// JavaScript method (alternative to CSS)
+function jsBlinkEffect() {
+  const button = document.getElementById("floatingProspectusBtn");
+
+  function toggleVisibility() {
+    // Show for 6 seconds
+    button.style.opacity = "1";
+
+    setTimeout(() => {
+      // Hide for 2 seconds
+      button.style.opacity = "0";
+    }, 6000);
+  }
+
+  // Start immediately
+  toggleVisibility();
+
+  // Repeat every 8 seconds
+  setInterval(toggleVisibility, 8000);
+}
+
+// Control functions
+function setAnimation(className) {
+  const button = document.querySelector(".prospectus-float-btn");
+  const buttons = document.querySelectorAll(".control-btn");
+
+  // Remove all animation classes
+  button.classList.remove("blink-css", "blink-smooth", "blink-pulse");
+
+  // Add new animation class if specified
+  if (className) {
+    button.classList.add(className);
+  }
+
+  // Update active button
+  buttons.forEach((btn) => btn.classList.remove("active"));
+  event.target.classList.add("active");
+}
+
+// Uncomment the line below to use JavaScript method instead of CSS
+// jsBlinkEffect();
