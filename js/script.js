@@ -17,12 +17,12 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
-mobileMenuToggle.addEventListener("click", initMobileMenu);
-
+mobileMenuToggle.onclick = function () {
+  initMobileMenu();
+};
 
 // Mobile Menu Functionality
 function initMobileMenu() {
-  
   const navMenu = document.querySelector(".nav-menu");
 
   if (mobileMenuToggle && navMenu) {
@@ -2025,170 +2025,172 @@ function initIntegratedCourseDetailsSystem() {
 // Close Button Fix - Add this to your script.js file
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Initialize close button functionality for all modals
-    initModalCloseFunctionality();
+  // Initialize close button functionality for all modals
+  initModalCloseFunctionality();
 });
 
 function initModalCloseFunctionality() {
-    // Function to close any modal
-    function closeModal(modal) {
-        if (modal) {
-            modal.style.display = 'none';
-            modal.classList.remove('active');
-            modal.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = 'auto';
-        }
+  // Function to close any modal
+  function closeModal(modal) {
+    if (modal) {
+      modal.style.display = "none";
+      modal.classList.remove("active");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "auto";
     }
+  }
 
-    // Handle all close buttons - multiple selectors for different modal types
-    const closeButtons = document.querySelectorAll(`
+  // Handle all close buttons - multiple selectors for different modal types
+  const closeButtons = document.querySelectorAll(`
         .close-btn, 
         .close-modal, 
         #closeModal, 
         .close-popup,
         .close-image-modal
     `);
-    
-    console.log('Found close buttons:', closeButtons.length); // Debug line
 
-    closeButtons.forEach((closeBtn, index) => {
-        console.log(`Setting up close button ${index}:`, closeBtn); // Debug line
-        
-        closeBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            console.log('Close button clicked:', this); // Debug line
-            
-            // Find the parent modal
-            let modal = this.closest('.modal');
-            if (!modal) {
-                modal = this.closest('.course-details-modal');
-            }
-            if (!modal) {
-                modal = this.closest('[role="dialog"]');
-            }
-            if (!modal) {
-                // Fallback - find any visible modal
-                modal = document.querySelector('.modal[style*="display: block"]') || 
-                        document.querySelector('.course-details-modal.active') ||
-                        document.querySelector('#courseModal');
-            }
-            
-            console.log('Found modal to close:', modal); // Debug line
-            closeModal(modal);
-        });
+  console.log("Found close buttons:", closeButtons.length); // Debug line
+
+  closeButtons.forEach((closeBtn, index) => {
+    console.log(`Setting up close button ${index}:`, closeBtn); // Debug line
+
+    closeBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      console.log("Close button clicked:", this); // Debug line
+
+      // Find the parent modal
+      let modal = this.closest(".modal");
+      if (!modal) {
+        modal = this.closest(".course-details-modal");
+      }
+      if (!modal) {
+        modal = this.closest('[role="dialog"]');
+      }
+      if (!modal) {
+        // Fallback - find any visible modal
+        modal =
+          document.querySelector('.modal[style*="display: block"]') ||
+          document.querySelector(".course-details-modal.active") ||
+          document.querySelector("#courseModal");
+      }
+
+      console.log("Found modal to close:", modal); // Debug line
+      closeModal(modal);
     });
+  });
 
-    // Handle clicks outside modal (backdrop click)
-    document.addEventListener('click', function(e) {
-        // Check if clicked element is a modal backdrop
-        if (e.target.classList.contains('modal') || 
-            e.target.classList.contains('course-details-modal')) {
-            closeModal(e.target);
-        }
-    });
+  // Handle clicks outside modal (backdrop click)
+  document.addEventListener("click", function (e) {
+    // Check if clicked element is a modal backdrop
+    if (
+      e.target.classList.contains("modal") ||
+      e.target.classList.contains("course-details-modal")
+    ) {
+      closeModal(e.target);
+    }
+  });
 
-    // Handle Escape key for all modals
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            // Find any open modal
-            const openModals = document.querySelectorAll(`
+  // Handle Escape key for all modals
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      // Find any open modal
+      const openModals = document.querySelectorAll(`
                 .modal[style*="display: block"],
                 .course-details-modal.active,
                 #courseModal[style*="display: block"]
             `);
-            
-            openModals.forEach(modal => closeModal(modal));
-        }
-    });
 
-    // Specific fix for your course details modals
-    const topicsModal = document.querySelector('#courseModal.modal');
-    const tiersModal = document.querySelector('.course-details-modal');
-    
-    // Topics Modal (View Details) - direct selector fix
-    if (topicsModal) {
-        const topicsCloseBtn = topicsModal.querySelector('.close-btn');
-        if (topicsCloseBtn) {
-            topicsCloseBtn.onclick = function() {
-                console.log('Topics modal close clicked'); // Debug
-                topicsModal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            };
-        }
+      openModals.forEach((modal) => closeModal(modal));
     }
+  });
 
-    // Tiers Modal (Learn More) - direct selector fix
-    if (tiersModal) {
-        const tiersCloseBtn = tiersModal.querySelector('#closeModal');
-        if (tiersCloseBtn) {
-            tiersCloseBtn.onclick = function() {
-                console.log('Tiers modal close clicked'); // Debug
-                tiersModal.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            };
-        }
-    }
+  // Specific fix for your course details modals
+  const topicsModal = document.querySelector("#courseModal.modal");
+  const tiersModal = document.querySelector(".course-details-modal");
 
-    // Enrollment modal close fix
-    const enrollmentModal = document.getElementById('enrollmentModal');
-    if (enrollmentModal) {
-        const enrollCloseBtn = enrollmentModal.querySelector('.close-modal');
-        if (enrollCloseBtn) {
-            enrollCloseBtn.onclick = function() {
-                console.log('Enrollment modal close clicked'); // Debug
-                enrollmentModal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            };
-        }
+  // Topics Modal (View Details) - direct selector fix
+  if (topicsModal) {
+    const topicsCloseBtn = topicsModal.querySelector(".close-btn");
+    if (topicsCloseBtn) {
+      topicsCloseBtn.onclick = function () {
+        console.log("Topics modal close clicked"); // Debug
+        topicsModal.style.display = "none";
+        document.body.style.overflow = "auto";
+      };
     }
+  }
+
+  // Tiers Modal (Learn More) - direct selector fix
+  if (tiersModal) {
+    const tiersCloseBtn = tiersModal.querySelector("#closeModal");
+    if (tiersCloseBtn) {
+      tiersCloseBtn.onclick = function () {
+        console.log("Tiers modal close clicked"); // Debug
+        tiersModal.classList.remove("active");
+        document.body.style.overflow = "auto";
+      };
+    }
+  }
+
+  // Enrollment modal close fix
+  const enrollmentModal = document.getElementById("enrollmentModal");
+  if (enrollmentModal) {
+    const enrollCloseBtn = enrollmentModal.querySelector(".close-modal");
+    if (enrollCloseBtn) {
+      enrollCloseBtn.onclick = function () {
+        console.log("Enrollment modal close clicked"); // Debug
+        enrollmentModal.style.display = "none";
+        document.body.style.overflow = "auto";
+      };
+    }
+  }
 }
 
 // Alternative approach - Force override any existing close button handlers
 function forceCloseButtonFix() {
-    setTimeout(() => {
-        // Get all close buttons again after page is fully loaded
-        const allCloseButtons = document.querySelectorAll('button, [role="button"]');
-        
-        allCloseButtons.forEach(btn => {
-            const buttonText = btn.textContent.trim();
-            const hasCloseClass = btn.className.includes('close');
-            const hasCloseSymbol = buttonText.includes('×') || buttonText.includes('✕');
-            
-            if (hasCloseClass || hasCloseSymbol) {
-                console.log('Force-fixing close button:', btn);
-                
-                // Remove all existing event listeners
-                const newBtn = btn.cloneNode(true);
-                btn.parentNode.replaceChild(newBtn, btn);
-                
-                // Add new event listener
-                newBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    
-                    // Close all open modals
-                    const modals = document.querySelectorAll('.modal, .course-details-modal');
-                    modals.forEach(modal => {
-                        modal.style.display = 'none';
-                        modal.classList.remove('active');
-                        document.body.style.overflow = 'auto';
-                    });
-                });
-            }
+  setTimeout(() => {
+    // Get all close buttons again after page is fully loaded
+    const allCloseButtons = document.querySelectorAll(
+      'button, [role="button"]'
+    );
+
+    allCloseButtons.forEach((btn) => {
+      const buttonText = btn.textContent.trim();
+      const hasCloseClass = btn.className.includes("close");
+      const hasCloseSymbol =
+        buttonText.includes("×") || buttonText.includes("✕");
+
+      if (hasCloseClass || hasCloseSymbol) {
+        console.log("Force-fixing close button:", btn);
+
+        // Remove all existing event listeners
+        const newBtn = btn.cloneNode(true);
+        btn.parentNode.replaceChild(newBtn, btn);
+
+        // Add new event listener
+        newBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+
+          // Close all open modals
+          const modals = document.querySelectorAll(
+            ".modal, .course-details-modal"
+          );
+          modals.forEach((modal) => {
+            modal.style.display = "none";
+            modal.classList.remove("active");
+            document.body.style.overflow = "auto";
+          });
         });
-    }, 1000);
+      }
+    });
+  }, 1000);
 }
 
 // Run both fixes
-document.addEventListener("DOMContentLoaded", function() {
-    initModalCloseFunctionality();
-    forceCloseButtonFix();
+document.addEventListener("DOMContentLoaded", function () {
+  initModalCloseFunctionality();
+  forceCloseButtonFix();
 });
-
-
-
-
-
-
