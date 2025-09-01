@@ -2182,3 +2182,9 @@ document.addEventListener("DOMContentLoaded", function() {
     initModalCloseFunctionality();
     forceCloseButtonFix();
 });
+
+
+
+// HOME section image sliding
+
+

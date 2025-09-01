@@ -77,8 +77,6 @@
                     <li role="none"><a href="courses.html" role="menuitem" class="nav-link">Courses</a></li>
                     <li role="none"><a href="about.html" role="menuitem" class="nav-link">About Us</a></li>
                     <li role="none"><a href="gallery.html" role="menuitem" class="nav-link">Gallery</a></li>
-                    <li role="none"><a href="prospectus.pdf" role="menuitem" class="nav-link" download>Download
-                            Prospectus</a></li>
                 </ul>
                 <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
                     <span></span>
@@ -92,19 +90,20 @@
     <main id="main-content" role="main">
         <!-- Video Section -->
         <section class="video-section" aria-label="Institution introduction video">
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1&mute=1&controls=1"
-                    title="Junak Digital Discovery Institution Introduction Video" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
-            </div>
-        </section>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/PxjV_1oPirk?si=frNnUSB7FJJ2cSWr&autoplay=1&mute=1&loop=1&playlist=PxjV_1oPirk"
+                title="Junak Digital Discovery Institution Introduction Video" 
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </section>
 
         <!-- Updated Hero Section with Enhanced Background Image -->
         <section class="hero" aria-label="Welcome section">
             <div class="slider-container">
-                <div class="slider-wrapper" id="sliderWrapper">
+                <div class="slider-wrapper auto-sliding" id="sliderWrapper">
                     <!-- Slide 1 -->
                     <div class="slide">
                         <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80"
@@ -135,22 +134,24 @@
 
             <div class="hero-overlay"></div>
 
-            <!-- Navigation Buttons -->
-            <button class="slider-nav prev" onclick="changeSlide(-1)" aria-label="Previous slide">
-                <svg viewBox="0 0 24 24">
-                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
-                </svg>
-            </button>
 
-            <button class="slider-nav next" onclick="changeSlide(1)" aria-label="Next slide">
-                <svg viewBox="0 0 24 24">
-                    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
-                </svg>
-            </button>
+
+            <!-- Navigation Buttons -->
+            <!-- <button class="slider-nav prev manual-control" onclick="changeSlide(-1)" aria-label="Previous slide">
+            <svg viewBox="0 0 24 24">
+                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+        </button>
+
+        <button class="slider-nav next manual-control" onclick="changeSlide(1)" aria-label="Next slide">
+            <svg viewBox="0 0 24 24">
+                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+            </svg>
+        </button> -->
 
             <!-- Dots Indicator -->
             <div class="slider-dots" id="dotsContainer">
-                <span class="dot active" onclick="currentSlide(1)"></span>
+                <span class="dot active current-indicator" onclick="currentSlide(1)"></span>
                 <span class="dot" onclick="currentSlide(2)"></span>
                 <span class="dot" onclick="currentSlide(3)"></span>
                 <span class="dot" onclick="currentSlide(4)"></span>
@@ -220,6 +221,42 @@
                 </div>
             </div>
         </section>
+        <!-- Enrollment Modal -->
+        <div id="enrollmentModal" class="modal" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="modal-title">Enroll in Course</h2>
+                    <button class="close-modal" aria-label="Close enrollment form">&times;</button>
+                </div>
+                <form id="enrollmentForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <div class="form-group">
+                        <label for="studentName">Full Name *</label>
+                        <input type="text" id="studentName" name="name" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="contactNumber">Contact Number *</label>
+                        <input type="tel" id="contactNumber" name="contact" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address *</label>
+                        <textarea id="address" name="address" required aria-required="true"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="occupation">Occupation</label>
+                        <input type="text" id="occupation" name="occupation">
+                    </div>
+                    <div class="form-group">
+                        <label for="courseName">Selected Course</label>
+                        <input type="text" id="courseName" name="course" readonly>
+                    </div>
+                    <input type="hidden" name="_subject" value="New Course Enrollment">
+                    <button type="submit" class="submit-btn">Submit Enrollment</button>
+                </form>
+            </div>
+        </div>
+
+
+
 
         <!-- Why Choose Us Section -->
         <section class="why-choose-us" aria-label="Why choose us">
@@ -403,6 +440,7 @@
             <div class="modal-header">
                 <h2 id="demo-modal-title">Book Your Free Demo Class</h2>
                 <button class="close-modal" aria-label="Close demo booking form">&times;</button>
+
             </div>
             <form id="demoForm" action="https://formspree.io/f/YOUR_DEMO_FORM_ID" method="POST">
                 <div class="form-group">
@@ -441,10 +479,18 @@
     </div>
 
     <!-- Floating Demo Class Button -->
+    <!-- Your existing BOOK FREE DEMO button (keep as is) -->
     <div id="floatingDemoBtn" class="floating-demo-btn">
         <button class="demo-float-btn" aria-label="Book free demo class">
             <span class="demo-btn-text">📚 Book Free Demo</span>
         </button>
+    </div>
+
+    <!-- New Download Prospectus button (add this below your existing button) -->
+    <div id="floatingProspectusBtn" class="floating-prospectus-btn">
+        <a href="prospectus.pdf" class="prospectus-float-btn" download aria-label="Download prospectus">
+            <span class="prospectus-btn-text">📄 Download Prospectus</span>
+        </a>
     </div>
 
     <!-- Free Counselling Popup -->
@@ -540,8 +586,8 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
-    
+    <script src="js/script.js"></script>
+
 </body>
 
 </html>
