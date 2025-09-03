@@ -53,7 +53,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-
+    <link rel="stylesheet" href="course.css">
+    <link rel="stylesheet" href="view-details.css">
 </head>
 
 <body>
@@ -170,6 +171,97 @@
                 </div>
             </div>
         </section>
+        <!--Copy Form course-->
+                <section class="upar-section" aria-label="Available courses">
+            <div class="container">
+                <h2 class="section-title">courses We Offer</h2>
+                <div class="upar-grid-new">
+                    <!-- Digital Marketing Course -->
+                    <article class="upar-card-new" data-course="digital-marketing">
+                        <h3>Digital Marketing</h3>
+                        <button class="enroll-btn-new" data-course="Digital Marketing"
+                            aria-label="Learn more about Digital Marketing course">Learn more</button>
+                    </article>
+
+                    <!-- AI Course -->
+                    <article class="upar-card-new" data-course="ai">
+                        <h3>AI</h3>
+                        <button class="enroll-btn-new" data-course="Artificial Intelligence"
+                            aria-label="Learn more about Artificial Intelligence course">Learn more</button>
+                    </article>
+
+                    <!-- Mass Communication Course -->
+                    <article class="upar-card-new" data-course="mass-communication">
+                        <h3>Mass Communication</h3>
+                        <button class="enroll-btn-new" data-course="Mass Communication"
+                            aria-label="Learn more about Mass Communication course">Learn more</button>
+                    </article>
+
+                    <!-- Entrepreneurship Course -->
+                    <article class="upar-card-new" data-course="entrepreneurship">
+                        <h3>Entrepreneurship</h3>
+                        <button class="enroll-btn-new" data-course="Entrepreneurship"
+                            aria-label="Learn more about Entrepreneurship course">Learn more</button>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <!-- Course Details Modal -->
+        <div class="course-details-modal" id="courseModal">
+            <div class="modal-content">
+                <button class="close-btn" id="closeModal">&times;</button>
+                <h2 class="modal-title" id="modalTitle">Digital Marketing Courses</h2>
+
+                <div class="course-tiers" id="courseTiers">
+                    <!-- Digital Marketing Tiers -->
+                    <div class="tier-card">
+                        <div class="tier-header">
+                            <div class="tier-title">Basic Digital Marketing</div>
+                            <div class="tier-duration">(1 Month)</div>
+                            <div class="tier-price">Rs.1500</div>
+                        </div>
+                        <div class="tier-modules">
+                            <div class="module-item">SEO Fundamentals</div>
+                            <div class="module-item">Social Media Marketing</div>
+                            <div class="module-item">Google Ads Basics</div>
+                        </div>
+                        <button class="tier-enroll-btn">Enroll Now</button>
+                    </div>
+
+                    <div class="tier-card">
+                        <div class="tier-header">
+                            <div class="tier-title">Advanced Digital Marketing</div>
+                            <div class="tier-duration">(2 Months)</div>
+                            <div class="tier-price">Rs.2500</div>
+                        </div>
+                        <div class="tier-modules">
+                            <div class="module-item">Advanced SEO</div>
+                            <div class="module-item">PPC Campaigns</div>
+                            <div class="module-item">Analytics & Reporting</div>
+                            <div class="module-item">Content Strategy</div>
+                        </div>
+                        <button class="tier-enroll-btn">Enroll Now</button>
+                    </div>
+
+                    <div class="tier-card">
+                        <div class="tier-header">
+                            <div class="tier-title">Digital Marketing Mastery</div>
+                            <div class="tier-duration">(3 Months)</div>
+                            <div class="tier-price">Rs.3500</div>
+                        </div>
+                        <div class="tier-modules">
+                            <div class="module-item">Marketing Automation</div>
+                            <div class="module-item">Conversion Optimization</div>
+                            <div class="module-item">Email Marketing</div>
+                            <div class="module-item">Brand Strategy</div>
+                            <div class="module-item">ROI Analysis</div>
+                        </div>
+                        <button class="tier-enroll-btn">Enroll Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!--End copy from course section-->
 
         <!-- Featured Courses Section -->
         <section class="featured-courses" aria-label="Featured courses">
@@ -177,6 +269,9 @@
                 <h2>Popular Courses</h2>
                 <p class="section-subtitle">Start your digital journey with our most sought-after courses</p>
                 <div class="courses-grid">
+                    
+                    
+
                     <!-- Course Card 1 -->
                     <article class="course-card" data-course="Digital Marketing">
                         <img src="images/AI-Marketing.png" alt="Digital Marketing Course" class="course-image">
@@ -185,7 +280,9 @@
                             <p class="course-price">₹14,999</p>
                             <p class="course-description">Master the fundamentals of digital marketing including SEO,
                                 SEM, and analytics.</p>
-                            <button class="enroll-btn" data-course="Digital Marketing"
+                                 <button class="view-details-btn" data-course="Digital Marketing"
+                                    aria-label="View Digital Marketing course details">View Details</button>
+                            <button class="enroll-btn" data-course="Digital Marketing" style="margin-top: 10px;";
                                 aria-label="Enroll in Digital Marketing course">Enroll Now</button>
                         </div>
                     </article>
@@ -549,14 +646,14 @@
                 <div class="footer-section">
                     <h3>Follow Us</h3>
                     <div class="social-links">
-                        <a href="https://www.facebook.com/share/19hsAaRuX3/" target="_blank" class="social-link"
+                        <a href="https://facebook.com/junakdigital" target="_blank" class="social-link"
                             aria-label="Follow us on Facebook">
                             <svg viewBox="0 0 24 24">
                                 <path
                                     d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                             </svg>
                         </a>
-                        <a href="https://instagram.com/junakdigital" target="_blank" class="social-link"
+                        <a href="https://www.facebook.com/share/19hsAaRuX3/" target="_blank" class="social-link"
                             aria-label="Follow us on Instagram">
                             <svg viewBox="0 0 24 24">
                                 <path
