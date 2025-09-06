@@ -1585,91 +1585,235 @@ document.addEventListener("DOMContentLoaded", function () {
 // Integrated Course Details System
 function initIntegratedCourseDetailsSystem() {
   // Course details data for "View Details" modal
-  const courseDetails = {
-    "Digital Marketing": {
-      topics: [
-        "Search Engine Optimization (SEO) Fundamentals",
-        "Google Ads & Paid Search Marketing",
-        "Social Media Marketing Strategies",
-        "Email Marketing Campaigns",
-        "Content Marketing & Copywriting",
-        "Google Analytics & Data Analysis",
-        "Conversion Rate Optimization",
-        "Marketing Automation Tools",
-        "Digital Marketing Strategy Planning",
-        "ROI Measurement & Reporting",
-      ],
-    },
-    "Social Media Marketing": {
-      topics: [
-        "Platform-Specific Content Strategies",
-        "Instagram Marketing & Stories",
-        "Facebook Advertising & Business Manager",
-        "LinkedIn Marketing for B2B",
-        "Twitter/X Marketing Techniques",
-        "YouTube Channel Growth Strategies",
-        "Influencer Marketing & Collaborations",
-        "Social Media Analytics & Insights",
-        "Community Management",
-        "Crisis Management on Social Platforms",
-      ],
-    },
-    "Website Design": {
-      topics: [
-        "HTML5 & CSS3 Fundamentals",
-        "Responsive Web Design Principles",
-        "User Experience (UX) Design",
-        "User Interface (UI) Design",
-        "Figma & Design Tools",
-        "JavaScript Basics for Interactivity",
-        "WordPress Development",
-        "Web Accessibility Standards",
-        "Performance Optimization",
-        "Domain & Hosting Management",
-      ],
-    },
-    "AI-Powered Digital Marketing": {
-      topics: [
-        "Introduction to AI in Marketing",
-        "ChatGPT for Content Creation",
-        "AI-Powered SEO Tools & Strategies",
-        "Automated Social Media Management",
-        "AI Analytics & Predictive Modeling",
-        "Personalization & Customer Segmentation",
-        "AI Chatbots for Customer Service",
-        "Programmatic Advertising with AI",
-        "Voice Search Optimization",
-        "AI Ethics in Marketing",
-      ],
-    },
-    "Brand Building Course": {
-      topics: [
-        "Brand Identity & Visual Design",
-        "Brand Strategy Development",
-        "Target Audience Research & Personas",
-        "Brand Positioning & Messaging",
-        "Logo Design & Brand Guidelines",
-        "Brand Voice & Tone Development",
-        "Digital Brand Management",
-        "Brand Reputation Management",
-        "Brand Storytelling Techniques",
-        "Brand Consistency Across Channels",
-      ],
-    },
-    "AI Master Course": {
-      topics: [
-        "Machine Learning Fundamentals",
-        "Python Programming for AI",
-        "Data Science & Analytics",
-        "Natural Language Processing (NLP)",
-        "Computer Vision Applications",
-        "Deep Learning & Neural Networks",
-        "AI Model Development & Training",
-        "AI Automation Tools & Workflows",
-        "AI Ethics & Responsible Development",
-        "Real-World AI Project Implementation",
-      ],
-    },
+const courseDetails = {
+  "Digital Marketing": {
+  topics: [
+    // Month 1
+    "<span class='month-title'>MONTH 1</span>",
+    "1. INTRODUCTION TO DIGITAL MARKETING & CAREER SCOPE",
+    "2. WEBSITE BASICS & BASIC WEBSITE DESIGN (WORDPRESS/NO-CODE)",
+    "3. FUNDAMENTALS OF SEO (ON-PAGE)",
+    "4. SEO OFF-PAGE & LINK BUILDING",
+    "5. GOOGLE MY BUSINESS REGISTRATION & LOCAL SEO",
+    "6. SOCIAL MEDIA MARKETING FUNDAMENTALS",
+    "7. BASIC DESIGN WITH CANVA & CREATIVE TOOLS",
+    "8. CONTENT STRATEGY & CALENDAR",
+
+    // Month 2
+    "<span class='month-title'>MONTH 2</span>",
+    "9. BASIC GOOGLE SEARCH ADS SETUP",
+    "10. PAID ADS BASICS (INTRO TO GOOGLE & META ADS)",
+    "11. FACEBOOK & INSTAGRAM MARKETING BASICS",
+    "12. WHATSAPP & EMAIL MARKETING BASICS",
+    "13. MOBILE MARKETING & APP PROMOTION",
+    "14. ANALYTICS BASICS (GOOGLE ANALYTICS, META INSIGHTS)",
+    "15. ONLINE REPUTATION MANAGEMENT (ORM)",
+    "16. MINI PROJECT 1: CREATE WEBSITE + RUN GMB LISTING",
+
+    // Month 3
+    "<span class='month-title'>MONTH 3</span>",
+    "17. INFLUENCER & AFFILIATE MARKETING BASICS",
+    "18. BLOGGING & CONTENT MARKETING",
+    "19. COPYWRITING FOR ADS & SOCIAL MEDIA",
+    "20. MARKETING AUTOMATION BASICS",
+    "21. INTRO TO E-COMMERCE MARKETING",
+    "22. FREELANCING BASICS IN DIGITAL MARKETING",
+    "23. CASE STUDIES OF SUCCESSFUL CAMPAIGNS",
+    "24. FINAL PROJECT & PRESENTATION"
+  ],
+},
+
+
+"Advance Digital Marketing": {
+  topics: [
+    // Note about prerequisites
+    "1-3 MONTH DIGITAL MARKETING FUNDAMENTALS COURSE",
+
+    // Month 4
+    "<span class='month-title'>MONTH 4</span>",
+    "25. ADVANCED SEO (TECHNICAL SEO, SCHEMA, TOOLS)",
+    "26. ADVANCED PAID ADS (CAMPAIGN STRUCTURES, RETARGETING)",
+    "27. LANDING PAGE DESIGN & CRO (CONVERSION OPTIMIZATION)",
+    "28. WHATSAPP AUTOMATION TOOLS (WATI, AI CHATBOTS)",
+    "29. EMAIL AUTOMATION (MAILCHIMP, HUBSPOT)",
+    "30. AI TOOLS FOR MARKETING (COPYWRITING, SCHEDULING, OPTIMIZATION)",
+    "31. IMAGE-TO-VIDEO & TEXT-TO-IMAGE TOOLS (CANVA AI, PICTORY, D-ID, RUNWAY ML)",
+    "32. MINI PROJECT 2: GOOGLE ADS + WHATSAPP AUTOMATION",
+
+    // Month 5
+    "<span class='month-title'>MONTH 5</span>",
+    "33. E-COMMERCE WEBSITE BUILDING (SHOPIFY, WOOCOMMERCE)",
+    "34. GOOGLE SHOPPING ADS SETUP",
+    "35. FUNNEL BUILDING (LEAD GEN, NURTURING, SALES FUNNELS)",
+    "36. BRANDING STRATEGIES FOR STARTUPS",
+    "37. LINKEDIN & B2B MARKETING",
+    "38. QUORA, REDDIT & MICRO-CONTENT MARKETING",
+    "39. EVENT MARKETING & WEBINARS",
+    "40. CASE STUDY DISCUSSIONS",
+
+    // Month 6
+    "<span class='month-title'>MONTH 6</span>",
+    "41. ADVANCED ANALYTICS (GA4, TAG MANAGER, LOOKER STUDIO)",
+    "42. MARKETING DASHBOARDS & REPORTS",
+    "43. GOOGLE PERFORMANCE MAX ADS (GOOGLE PLEX ADS)",
+    "44. SCALING FREELANCE AGENCY MODEL",
+    "45. AI IN CONTENT MARKETING (CHATGPT, JASPER)",
+    "46. INFLUENCER & AFFILIATE COLLABORATION ADVANCED",
+    "47. MINI PROJECT 3: E-COMMERCE STORE + SHOPPING ADS",
+    "48. FINAL PRESENTATION & VIVA"
+  ],
+},
+
+
+"Profesional Digital Marketing": {
+  topics: [
+    // Note about course flow
+    "1-3 MONTH DIGITAL MARKETING FUNDAMENTALS COURSE",
+    "3-6 MONTH ADVANCE DIGITAL MARKETING",
+
+    // Month 7
+    "<span class='month-title'>MONTH 7</span>",
+    "49. AI-POWERED AD MAKING (META AI, GOOGLE AI, CANVA AI ADS)",
+    "50. REELS MARKETING & VIRAL CONTENT STRATEGIES",
+    "51. VIDEO EDITING TOOLS (CAPCUT, PREMIERE PRO, AI EDITORS)",
+    "52. AI CHARACTER DESIGN & VIRTUAL INFLUENCERS (HEYGEN, SYNTHESIA, REFACE)",
+    "53. GROWTH HACKING & VIRAL MARKETING",
+    "54. NEUROMARKETING & CONSUMER PSYCHOLOGY",
+    "55. CRM TOOLS & ADVANCED AUTOMATION",
+    "56. MINI PROJECT 4: AI-POWERED REELS & ADS",
+
+    // Month 8
+    "<span class='month-title'>MONTH 8</span>",
+    "57. YOUTUBE MARKETING & GROWTH STRATEGY",
+    "58. YOUTUBE SEO (RANKING, TAGS, ANALYTICS)",
+    "59. PROGRAMMATIC ADVERTISING & MEDIA BUYING",
+    "60. INTERNATIONAL DIGITAL MARKETING & LOCALIZATION",
+    "61. PERSONAL BRANDING & THOUGHT LEADERSHIP",
+    "62. CORPORATE TRAINING IN DIGITAL MARKETING",
+    "63. LIVE CAMPAIGN MANAGEMENT (INDUSTRY PROJECT)",
+    "64. INDUSTRY EXPERT MASTERCLASS",
+
+    // Month 9
+    "<span class='month-title'>MONTH 9</span>",
+    "65. ADVANCED FREELANCE MARKETPLACE MASTERY",
+    "66. AGENCY BUILDING & CLIENT MANAGEMENT",
+    "67. CASE STUDIES (AMAZON, ZOMATO, FLIPKART, NYKAA)",
+    "68. INFLUENCER CONTRACTING & MONETIZATION",
+    "69. CAPSTONE PROJECT (FULL FUNNEL AI CAMPAIGN)",
+    "70. PORTFOLIO & RESUME DEVELOPMENT",
+    "71. MOCK INTERVIEWS & CAREER GUIDANCE",
+    "72. FINAL PROJECT DEFENSE & CERTIFICATION",
+
+    // Month 10 – Internship (Part 1)
+    "<span class='month-title'>MONTH 10 – INTERNSHIP (PART 1)</span>",
+    "1. INTERNSHIP ORIENTATION & PROJECT ALLOCATION",
+    "2. COMPETITOR ANALYSIS FOR LIVE CLIENT",
+    "3. KEYWORD RESEARCH FOR CLIENT CAMPAIGN",
+    "4. WEBSITE OPTIMIZATION TASK",
+    "5. GOOGLE ADS LIVE CAMPAIGN SETUP",
+    "6. SOCIAL MEDIA STRATEGY FOR CLIENT",
+    "7. SEO OPTIMIZATION & REPORTING",
+    "8. INTERNSHIP PROGRESS REVIEW",
+
+    // Month 11 – Internship (Part 2)
+    "<span class='month-title'>MONTH 11 – INTERNSHIP (PART 2)</span>",
+    "1. CONTENT CALENDAR FOR CLIENT PROJECT",
+    "2. FACEBOOK & INSTAGRAM ADS (LIVE EXECUTION)",
+    "3. YOUTUBE MARKETING FOR CLIENT",
+    "4. WHATSAPP & EMAIL AUTOMATION FOR CLIENT",
+    "5. INFLUENCER COLLABORATION EXECUTION",
+    "6. ANALYTICS & REPORT SUBMISSION",
+    "7. ROI & BUDGET ANALYSIS",
+    "8. INTERNSHIP EVALUATION & FEEDBACK",
+
+    // Month 12 – Professional Training
+    "<span class='month-title'>MONTH 12 – PROFESSIONAL TRAINING</span>",
+    "1. INDUSTRY-LEVEL DIGITAL MARKETING TRENDS",
+    "2. ADVANCED AI TOOLS FOR MARKETING",
+    "3. PROFESSIONAL CLIENT PROPOSAL & PITCHING",
+    "4. AGENCY-STYLE TEAM COLLABORATION",
+    "5. INTERNATIONAL FREELANCING & CLIENT HANDLING",
+    "6. CASE STUDIES FROM AGENCIES",
+    "7. CAPSTONE PROJECT PRESENTATION",
+    "8. CAREER GUIDANCE & PLACEMENT SUPPORT"
+  ],
+},
+
+
+    "AI Power Marketing": {
+  topics: [
+    "CLASS 1 – INTRODUCTION TO AI IN MARKETING",
+    "CLASS 2 – AI TOOLS FOR CONTENT CREATION (COPY, BLOGS, ADS)",
+    "CLASS 3 – AI-POWERED GRAPHIC DESIGN (CANVA, ADOBE FIREFLY, ETC.)",
+    "CLASS 4 – AI VIDEO CREATION & EDITING TOOLS",
+    "CLASS 5 – AI FOR SOCIAL MEDIA MANAGEMENT (SCHEDULING, CAPTIONS, INSIGHTS)",
+    "CLASS 6 – AI IN SEO & KEYWORD RESEARCH",
+    "CLASS 7 – AI FOR EMAIL & AUTOMATION (CHATGPT, MAILCHIMP AI)",
+    "CLASS 8 – CAPSTONE PROJECT: AI-POWERED CAMPAIGN"
+  ],
+},
+
+    "Advance AI Power Marketing": {
+  topics: [
+    "MONTH 1 – AI POWER MARKETING TOOLS",
+
+    "<span class='month-title'>MONTH 2</span>",
+    "CLASS 9 – AI FOR MARKET RESEARCH & CONSUMER INSIGHTS",
+    "CLASS 10 – AI-POWERED AD TARGETING (META ADS AI, GOOGLE ADS AI)",
+    "CLASS 11 – AI IN PERSONALIZATION & CUSTOMER JOURNEY MAPPING",
+    "CLASS 12 – CHATBOTS & CONVERSATIONAL AI (MANYCHAT, INTERCOM, DRIFT)",
+    "CLASS 13 – AI IN E-COMMERCE (RECOMMENDATION ENGINES, SMART UPSELLING)",
+    "CLASS 14 – PREDICTIVE ANALYTICS FOR MARKETING",
+    "CLASS 15 – AI TOOLS FOR INFLUENCER & AFFILIATE MARKETING",
+    "CLASS 16 – AI IN SOCIAL LISTENING & BRAND MONITORING",
+    "CLASS 17 – GENERATIVE AI FOR CREATIVE CAMPAIGNS",
+    "CLASS 18 – AI IN VIDEO ADS (VOICEOVER, DUBBING, AUTO-EDITING)",
+    "CLASS 19 – AI FOR PERFORMANCE TRACKING & REPORTING (DASHBOARDS)",
+    "CLASS 20 – ETHICS, RISKS & LIMITATIONS OF AI IN MARKETING",
+    "CLASS 21 – FUTURE OF AI IN DIGITAL MARKETING",
+    "CLASS 22 – CASE STUDIES: BRANDS USING AI SUCCESSFULLY",
+    "CLASS 23 – PROJECT LAB: DESIGNING A FULL AI-POWERED MARKETING PLAN",
+    "CLASS 24 – FINAL PRESENTATION & CERTIFICATION"
+  ],
+},
+
+    "Startup launch": {
+  topics: [
+    // MONTH 1 – STARTUP FOUNDATIONS & BUSINESS BASICS
+    "<span class='month-title'>MONTH 1 – STARTUP FOUNDATIONS & BUSINESS BASICS</span>",
+    "CLASS 1 – INTRODUCTION TO STARTUPS & ENTREPRENEURIAL MINDSET",
+    "CLASS 2 – IDENTIFYING PROFITABLE BUSINESS IDEAS & NICHES",
+    "CLASS 3 – MARKET RESEARCH & COMPETITOR ANALYSIS",
+    "CLASS 4 – BUSINESS MODEL CANVAS & LEAN STARTUP PRINCIPLES",
+    "CLASS 5 – LEGAL STRUCTURE, REGISTRATION & COMPLIANCE BASICS",
+    "CLASS 6 – BRANDING ESSENTIALS: NAME, LOGO, IDENTITY",
+    "CLASS 7 – BUILDING A PROFESSIONAL PORTFOLIO/WEBSITE",
+    "CLASS 8 – MINI PROJECT 1: CREATE A BUSINESS IDEA PITCH",
+
+    // MONTH 2 – FREELANCING & DIGITAL BUSINESS SKILLS
+    "<span class='month-title'>MONTH 2 – FREELANCING & DIGITAL BUSINESS SKILLS</span>",
+    "CLASS 9 – FREELANCING PLATFORMS (UPWORK, FIVERR, LINKEDIN)",
+    "CLASS 10 – CREATING WINNING FREELANCE PROFILES & PORTFOLIOS",
+    "CLASS 11 – PROPOSAL WRITING & CLIENT COMMUNICATION SKILLS",
+    "CLASS 12 – PRICING STRATEGIES & NEGOTIATION TACTICS",
+    "CLASS 13 – TIME MANAGEMENT & PRODUCTIVITY TOOLS",
+    "CLASS 14 – BUILDING AN ONLINE PRESENCE (PERSONAL BRANDING & SOCIAL MEDIA)",
+    "CLASS 15 – PAYMENT GATEWAYS, CONTRACTS & INVOICING",
+    "CLASS 16 – MINI PROJECT 2: CREATE A FREELANCE SERVICE PROFILE",
+
+    // MONTH 3 – LAUNCH, GROWTH & SCALING
+    "<span class='month-title'>MONTH 3 – LAUNCH, GROWTH & SCALING</span>",
+    "CLASS 17 – STARTUP FUNDING (BOOTSTRAPPING, ANGEL, VC)",
+    "CLASS 18 – DIGITAL MARKETING FOR STARTUPS & FREELANCERS",
+    "CLASS 19 – SALES FUNNEL & CUSTOMER ACQUISITION STRATEGIES",
+    "CLASS 20 – NETWORKING & COLLABORATION SKILLS",
+    "CLASS 21 – CLIENT RELATIONSHIP MANAGEMENT & RETENTION",
+    "CLASS 22 – SCALING A FREELANCE CAREER INTO AN AGENCY",
+    "CLASS 23 – CAPSTONE PROJECT: STARTUP LAUNCH PLAN OR FREELANCE GROWTH PLAN",
+    "CLASS 24 – FINAL PRESENTATION, FEEDBACK & CERTIFICATION"
+  ]
+},
+
   };
 
   // Course data for tier-based modal (for "Learn more" buttons)
@@ -2194,3 +2338,4 @@ document.addEventListener("DOMContentLoaded", function () {
   initModalCloseFunctionality();
   forceCloseButtonFix();
 });
+
