@@ -1596,7 +1596,10 @@ footer {
 
     .hero {
         padding: 60px 0;
+<<<<<<< HEAD
         height: 300px;
+=======
+>>>>>>> b4426e1981ec16202392931fa1dce70674aaff21
     }
 
     .hero-title {
@@ -1651,11 +1654,14 @@ footer {
         --dark-gray: #000;
     }
 }
+<<<<<<< HEAD
 
 
 
 
 /* About Page Styles */
+=======
+>>>>>>> b4426e1981ec16202392931fa1dce70674aaff21
 .about-content {
     margin-top: 30px;
     padding: 80px 0;
@@ -1684,7 +1690,11 @@ footer {
     width: 100%;
     height: auto;
     border-radius: 10px;
+<<<<<<< HEAD
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+=======
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+>>>>>>> b4426e1981ec16202392931fa1dce70674aaff21
 }
 
 .mission-vision {
@@ -1702,7 +1712,11 @@ footer {
     background: var(--white);
     padding: 30px;
     border-radius: 10px;
+<<<<<<< HEAD
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+=======
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+>>>>>>> b4426e1981ec16202392931fa1dce70674aaff21
     transition: transform 0.3s ease;
 }
 
@@ -1737,7 +1751,11 @@ footer {
     background: var(--white);
     padding: 30px;
     border-radius: 15px;
+<<<<<<< HEAD
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+=======
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+>>>>>>> b4426e1981ec16202392931fa1dce70674aaff21
     text-align: center;
     transition: transform 0.3s ease;
 }
@@ -1771,11 +1789,18 @@ footer {
     color: var(--dark-gray);
     line-height: 1.6;
 }
+<<<<<<< HEAD
 
 /* Gallery Styles */
 .gallery-section {
     padding: 80px 0;
 
+=======
+/* Gallery Styles */
+.gallery-section {
+    padding: 80px 0;
+    
+>>>>>>> b4426e1981ec16202392931fa1dce70674aaff21
 }
 
 .gallery-grid {
@@ -1788,7 +1813,11 @@ footer {
     position: relative;
     overflow: hidden;
     border-radius: 10px;
+<<<<<<< HEAD
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+=======
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+>>>>>>> b4426e1981ec16202392931fa1dce70674aaff21
     transition: transform 0.3s ease;
     cursor: pointer;
 }
@@ -1825,6 +1854,7 @@ footer {
     font-weight: 500;
 }
 
+<<<<<<< HEAD
 .hero{
     height: 450px;
 }
@@ -2111,3 +2141,5 @@ footer {
 
 
         
+=======
+>>>>>>> b4426e1981ec16202392931fa1dce70674aaff21
