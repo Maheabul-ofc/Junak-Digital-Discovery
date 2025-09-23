@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Course Modal System</title>
+    <style>
+        /* Reset and basic styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Container and layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            text-align: center;
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+
+        /* Course grid */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        /* Course card styles */
+        .course-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .course-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #2E8B57, #3CB371);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .course-content {
+            padding: 25px;
+        }
+
+        .course-content h3 {
+            color: #2E8B57;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .course-price {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #2E8B57;
+            margin: 10px 0;
+        }
+
+        .tier-duration {
+            color: #666;
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .course-description {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .course-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .view-details-btn, .enroll-btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .view-details-btn {
+            background: transparent;
+            color: #2E8B57;
+            border: 2px solid #2E8B57;
+        }
+
+        .view-details-btn:hover {
+            background: #2E8B57;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .enroll-btn {
+            background: #2E8B57;
+            color: white;
+        }
+
+        .enroll-btn:hover {
+            background: #236B47;
+            transform: translateY(-2px);
+        }
+
+        .view-all-courses {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .view-all-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: white;
+            color: #2E8B57;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .view-all-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Modal styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            z-index: 10000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.show {
+            opacity: 1;
+        }
+
+        .modal-container {
+            background: white;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            margin: 2% auto;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            transform: translateY(-50px) scale(0.9);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .modal-overlay.show .modal-container {
+            transform: translateY(0) scale(1);
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #2E8B57 0%, #3CB371 100%);
+            color: white;
+            padding: 30px 40px;
+            position: relative;
+        }
+
+        .modal-title {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: 0.5px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 0;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            padding: 40px;
+        }
+
+        .learning-title {
+            color: #2E8B57;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .learning-title::before {
+            content: "🎓";
+            font-size: 1.5rem;
+        }
+
+        .month-section {
+            margin-bottom: 30px;
+        }
+
+        .month-header {
+            background: linear-gradient(135deg, #FF8C00 0%, #FF7F50 100%);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .month-header::before {
+            content: "📅";
+            font-size: 1.2rem;
+        }
+
+        .topics-list {
+            list-style: none;
+        }
+
+        .topic-item {
+            background: #f8f9fa;
+            margin-bottom: 10px;
+            padding: 18px 25px;
+            border-radius: 12px;
+            border-left: 5px solid #2E8B57;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .topic-item:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+
+        .topic-icon {
+            background: #2E8B57;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .topic-text {
+            color: #333;
+            font-size: 1rem;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        .modal-footer {
+            background: #f8f9fa;
+            padding: 30px 40px;
+            display: flex;
+            gap: 15px;
+            justify-content: flex-end;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .modal-enroll-btn {
+            background: linear-gradient(135deg, #2E8B57 0%, #3CB371 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(46, 139, 87, 0.3);
+        }
+
+        .modal-enroll-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(46, 139, 87, 0.4);
+        }
+
+        .modal-cancel-btn {
+            background: transparent;
+            color: #666;
+            border: 2px solid #ddd;
+            padding: 13px 25px;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-cancel-btn:hover {
+            background: #f5f5f5;
+            border-color: #bbb;
+        }
+
+        /* Scrollbar styling */
+        .modal-body::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .modal-body::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .modal-body::-webkit-scrollbar-thumb {
+            background: #2E8B57;
+            border-radius: 4px;
+        }
+
+        .modal-body::-webkit-scrollbar-thumb:hover {
+            background: #236B47;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-container {
+                width: 95%;
+                margin: 5% auto;
+            }
+
+            .modal-header, .modal-content, .modal-footer {
+                padding: 20px;
+            }
+
+            .modal-footer {
+                flex-direction: column;
+            }
+
+            .course-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Course Section -->
+    <section class="featured-courses">
+        <div class="container">
+            <h2>Popular Courses</h2>
+            <p class="section-subtitle">Start your digital journey with our most sought-after courses</p>
+            
+            <div class="courses-grid">
+                <!-- Course 1: Digital Marketing -->
+                <article class="course-card">
+                    <div class="course-image">
+                        Digital Marketing
+                    </div>
+                    <div class="course-content">
+                        <h3>CERTIFICATE IN DIGITAL MARKETING FUNDAMENTALS</h3>
+                        <p class="course-price">₹14,999</p>
+                        <div class="tier-duration">(3 Months)</div>
+                        <p class="course-description">Master the fundamentals of digital marketing including SEO, SEM, and analytics.</p>
+                        <div class="course-buttons">
+                            <button class="view-details-btn" data-course="Digital Marketing">View Details</button>
+                            <button class="enroll-btn" data-course="Digital Marketing">Enroll Now</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Course 2: Social Media Marketing -->
+                <article class="course-card">
+                    <div class="course-image" style="background: linear-gradient(135deg, #FF8C00, #FFA500);">
+                        Social Media Marketing
+                    </div>
+                    <div class="course-content">
+                        <h3>Social Media Marketing</h3>
+                        <p class="course-price">₹12,000</p>
+                        <div class="tier-duration">(2 Months)</div>
+                        <p class="course-description">Learn to create engaging content and grow your social media presence effectively.</p>
+                        <div class="course-buttons">
+                            <button class="view-details-btn" data-course="Social Media Marketing">View Details</button>
+                            <button class="enroll-btn" data-course="Social Media Marketing">Enroll Now</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Course 3: Website Design -->
+                <article class="course-card">
+                    <div class="course-image" style="background: linear-gradient(135deg, #DC143C, #FF6B6B);">
+                        Website Design
+                    </div>
+                    <div class="course-content">
+                        <h3>Website Design</h3>
+                        <p class="course-price">₹18,000</p>
+                        <div class="tier-duration">(4 Months)</div>
+                        <p class="course-description">Create stunning, responsive websites using modern design principles and tools.</p>
+                        <div class="course-buttons">
+                            <button class="view-details-btn" data-course="Website Design">View Details</button>
+                            <button class="enroll-btn" data-course="Website Design">Enroll Now</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="view-all-courses">
+                <a href="#" class="view-all-btn">View All Courses</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="courseModal" class="modal-overlay">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2 id="modalTitle" class="modal-title">Course Details</h2>
+                <button id="modalClose" class="modal-close">&times;</button>
+            </div>
+            
+            <div class="modal-body">
+                <div id="modalContent" class="modal-content">
+                    <!-- Dynamic content will be inserted here -->
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <button id="modalCancel" class="modal-cancel-btn">Maybe Later</button>
+                <button id="modalEnroll" class="modal-enroll-btn">Enroll Now</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Course Modal System
+        class CourseModalSystem {
+            constructor() {
+                this.modal = null;
+                this.modalTitle = null;
+                this.modalContent = null;
+                this.modalEnroll = null;
+                this.modalClose = null;
+                this.modalCancel = null;
+                this.currentCourse = null;
+                
+                this.courseData = {
+                    'Digital Marketing': {
+                        title: 'DIGITAL MARKETING - COURSE DETAILS',
+                        months: [
+                            {
+                                title: 'MONTH 1',
+                                topics: [
+                                    'INTRODUCTION TO DIGITAL MARKETING & CAREER SCOPE',
+                                    'WEBSITE BASICS & BASIC WEBSITE DESIGN (WORDPRESS/NO-CODE)',
+                                    'FUNDAMENTALS OF SEO (ON-PAGE)',
+                                    'SEO OFF-PAGE & LINK BUILDING',
+                                    'GOOGLE MY BUSINESS REGISTRATION & LOCAL SEO',
+                                    'SOCIAL MEDIA MARKETING FUNDAMENTALS',
+                                    'BASIC DESIGN WITH CANVA & CREATIVE TOOLS',
+                                    'CONTENT STRATEGY & CALENDAR'
+                                ]
+                            },
+                            {
+                                title: 'MONTH 2',
+                                topics: [
+                                    'ADVANCED SEO TECHNIQUES',
+                                    'GOOGLE ANALYTICS & SEARCH CONSOLE',
+                                    'PPC ADVERTISING FUNDAMENTALS',
+                                    'FACEBOOK & INSTAGRAM ADS',
+                                    'EMAIL MARKETING STRATEGIES',
+                                    'CONVERSION RATE OPTIMIZATION',
+                                    'AFFILIATE MARKETING BASICS',
+                                    'MOBILE MARKETING STRATEGIES'
+                                ]
+                            },
+                            {
+                                title: 'MONTH 3',
+                                topics: [
+                                    'ADVANCED SOCIAL MEDIA STRATEGIES',
+                                    'YOUTUBE MARKETING & OPTIMIZATION',
+                                    'INFLUENCER MARKETING',
+                                    'E-COMMERCE MARKETING',
+                                    'MARKETING AUTOMATION TOOLS',
+                                    'DATA ANALYSIS & REPORTING',
+                                    'CAREER GUIDANCE & PORTFOLIO BUILDING',
+                                    'FINAL PROJECT & CERTIFICATION'
+                                ]
+                            }
+                        ]
+                    },
+                    'Social Media Marketing': {
+                        title: 'SOCIAL MEDIA MARKETING - COURSE DETAILS',
+                        months: [
+                            {
+                                title: 'MONTH 1',
+                                topics: [
+                                    'INTRODUCTION TO SOCIAL MEDIA MARKETING',
+                                    'PLATFORM OVERVIEW & AUDIENCE ANALYSIS',
+                                    'CONTENT CREATION FUNDAMENTALS',
+                                    'FACEBOOK MARKETING STRATEGIES',
+                                    'INSTAGRAM MARKETING & STORIES',
+                                    'LINKEDIN PROFESSIONAL MARKETING',
+                                    'TWITTER/X MARKETING TACTICS',
+                                    'CONTENT CALENDAR PLANNING'
+                                ]
+                            },
+                            {
+                                title: 'MONTH 2',
+                                topics: [
+                                    'ADVANCED CONTENT CREATION',
+                                    'SOCIAL MEDIA ADVERTISING',
+                                    'INFLUENCER COLLABORATION',
+                                    'COMMUNITY MANAGEMENT',
+                                    'ANALYTICS & PERFORMANCE TRACKING',
+                                    'CRISIS MANAGEMENT ON SOCIAL MEDIA',
+                                    'BRAND BUILDING STRATEGIES',
+                                    'CAMPAIGN OPTIMIZATION'
+                                ]
+                            }
+                        ]
+                    },
+                    'Website Design': {
+                        title: 'WEBSITE DESIGN - COURSE DETAILS',
+                        months: [
+                            {
+                                title: 'MONTH 1',
+                                topics: [
+                                    'INTRODUCTION TO WEB DESIGN',
+                                    'HTML FUNDAMENTALS',
+                                    'CSS STYLING & LAYOUTS',
+                                    'RESPONSIVE DESIGN PRINCIPLES',
+                                    'COLOR THEORY & TYPOGRAPHY',
+                                    'USER EXPERIENCE (UX) BASICS',
+                                    'WIREFRAMING & PROTOTYPING',
+                                    'DESIGN TOOLS OVERVIEW'
+                                ]
+                            },
+                            {
+                                title: 'MONTH 2',
+                                topics: [
+                                    'ADVANCED CSS TECHNIQUES',
+                                    'JAVASCRIPT BASICS FOR DESIGNERS',
+                                    'BOOTSTRAP FRAMEWORK',
+                                    'WORDPRESS THEME DEVELOPMENT',
+                                    'E-COMMERCE WEBSITE DESIGN',
+                                    'MOBILE-FIRST DESIGN',
+                                    'PERFORMANCE OPTIMIZATION',
+                                    'CROSS-BROWSER COMPATIBILITY'
+                                ]
+                            },
+                            {
+                                title: 'MONTH 3',
+                                topics: [
+                                    'ADVANCED JAVASCRIPT & JQUERY',
+                                    'CONTENT MANAGEMENT SYSTEMS',
+                                    'SEO-FRIENDLY DESIGN',
+                                    'WEBSITE SECURITY BASICS',
+                                    'TESTING & DEBUGGING',
+                                    'CLIENT COMMUNICATION',
+                                    'FREELANCING & PORTFOLIO BUILDING',
+                                    'INDUSTRY BEST PRACTICES'
+                                ]
+                            },
+                            {
+                                title: 'MONTH 4',
+                                topics: [
+                                    'ADVANCED FRAMEWORKS & LIBRARIES',
+                                    'DATABASE INTEGRATION',
+                                    'API INTEGRATION',
+                                    'PROGRESSIVE WEB APPS',
+                                    'WEBSITE MAINTENANCE',
+                                    'ANALYTICS INTEGRATION',
+                                    'FINAL PROJECT DEVELOPMENT',
+                                    'CERTIFICATION & CAREER GUIDANCE'
+                                ]
+                            }
+                        ]
+                    }
+                };
+                
+                this.init();
+            }
+            
+            init() {
+                this.setupElements();
+                this.bindEvents();
+                console.log('Course Modal System initialized successfully');
+            }
+            
+            setupElements() {
+                this.modal = document.getElementById('courseModal');
+                this.modalTitle = document.getElementById('modalTitle');
+                this.modalContent = document.getElementById('modalContent');
+                this.modalEnroll = document.getElementById('modalEnroll');
+                this.modalClose = document.getElementById('modalClose');
+                this.modalCancel = document.getElementById('modalCancel');
+                
+                console.log('Elements setup:', {
+                    modal: !!this.modal,
+                    title: !!this.modalTitle,
+                    content: !!this.modalContent,
+                    enroll: !!this.modalEnroll,
+                    close: !!this.modalClose,
+                    cancel: !!this.modalCancel
+                });
+            }
+            
+            bindEvents() {
+                // View Details buttons
+                const viewButtons = document.querySelectorAll('.view-details-btn');
+                console.log(`Found ${viewButtons.length} view details buttons`);
+                
+                viewButtons.forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        const courseName = e.target.getAttribute('data-course');
+                        console.log('Opening modal for:', courseName);
+                        this.openModal(courseName);
+                    });
+                });
+                
+                // Close events
+                this.modalClose?.addEventListener('click', () => this.closeModal());
+                this.modalCancel?.addEventListener('click', () => this.closeModal());
+                
+                // Click outside to close
+                this.modal?.addEventListener('click', (e) => {
+                    if (e.target === this.modal) {
+                        this.closeModal();
+                    }
+                });
+                
+                // Escape key
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && this.modal?.classList.contains('show')) {
+                        this.closeModal();
+                    }
+                });
+                
+                // Enroll button
+                this.modalEnroll?.addEventListener('click', () => {
+                    console.log('Enrolling in:', this.currentCourse);
+                    alert(`Great! You're enrolling in the ${this.currentCourse} course. Redirecting to enrollment page...`);
+                    this.closeModal();
+                });
+            }
+            
+            openModal(courseName) {
+                const courseInfo = this.courseData[courseName];
+                if (!courseInfo) {
+                    console.error('Course not found:', courseName);
+                    return;
+                }
+                
+                this.currentCourse = courseName;
+                this.modalTitle.textContent = courseInfo.title;
+                this.modalContent.innerHTML = this.generateContent(courseInfo);
+                
+                this.modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                
+                setTimeout(() => {
+                    this.modal.classList.add('show');
+                }, 10);
+                
+                console.log('Modal opened for:', courseName);
+            }
+            
+            closeModal() {
+                this.modal.classList.remove('show');
+                
+                setTimeout(() => {
+                    this.modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }, 300);
+                
+                this.currentCourse = null;
+                console.log('Modal closed');
+            }
+            
+            generateContent(courseInfo) {
+                let html = `<div class="learning-title">What you will learn:</div>`;
+                
+                courseInfo.months.forEach((month, monthIndex) => {
+                    html += `
+                        <div class="month-section">
+                            <div class="month-header">${month.title}</div>
+                            <ul class="topics-list">
+                    `;
+                    
+                    month.topics.forEach((topic, topicIndex) => {
+                        html += `
+                            <li class="topic-item">
+                                <div class="topic-icon">${topicIndex + 1}</div>
+                                <div class="topic-text">${topic}</div>
+                            </li>
+                        `;
+                    });
+                    
+                    html += '</ul></div>';
+                });
+                
+                return html;
+            }
+        }
+        
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            new CourseModalSystem();
+        });
+    </script>
+</body>
+</html>

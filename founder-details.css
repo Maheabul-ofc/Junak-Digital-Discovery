@@ -1,218 +1,449 @@
-/* Founder Section Styles */
-.founder-section {
-    padding: 80px 0;
-    background: var(--white);
+/* Enhanced About Us Mobile Styles */
+
+/* Mobile-first optimizations for about content */
+.about-content {
+    margin-top: 80px; /* Account for fixed navbar */
+    padding: 40px 0; /* Reduced padding for mobile */
 }
 
-.founder-section h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    color: var(--primary-green);
-    margin-bottom: 50px;
-    font-weight: 700;
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column for mobile first */
+    gap: 30px;
+    align-items: center;
+}
+
+/* Founder section mobile optimizations */
+.founder-section {
+    padding: 60px 0; /* Reduced padding for mobile */
+    background: var(--white); /* Ensure white background */
 }
 
 .founder-card {
     display: flex;
-    align-items: center;
-    gap: 50px;
-    max-width: 1200px;
-    margin: 0 auto;
+    flex-direction: column; /* Stack vertically on mobile */
+    gap: 25px;
+    padding: 30px 20px; /* Increased padding for better visibility */
     background: var(--white);
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    padding: 50px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.founder-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    border: 1px solid rgba(0, 107, 91, 0.1); /* Subtle border for definition */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08); /* Soft shadow for depth */
 }
 
 .founder-image-container {
-    flex-shrink: 0;
-    position: relative;
+    align-self: center;
+    margin-bottom: 20px;
 }
 
 .founder-image {
-    width: 280px;
-    height: 280px;
-    border-radius: 50%;
+    width: 200px; /* Fixed size for mobile */
+    height: 200px;
+    border-radius: 50%; /* Circular image as requested */
     object-fit: cover;
-    border: 5px solid var(--primary-green);
-    box-shadow: 0 10px 30px rgba(0, 107, 91, 0.3);
-    transition: transform 0.3s ease;
-}
-
-.founder-image:hover {
-    transform: scale(1.02);
-}
-
-.founder-info {
-    flex: 1;
+    border: 4px solid var(--primary-green); /* Border for better definition */
+    box-shadow: 0 4px 15px rgba(0, 107, 91, 0.2); /* Shadow for depth */
 }
 
 .founder-info h3 {
-    font-size: 2.2rem;
-    color: var(--primary-green);
-    font-weight: 700;
+    font-size: 1.9rem; /* Slightly larger for better visibility */
+    text-align: center;
     margin-bottom: 10px;
+    color: var(--primary-green); /* Ensure color contrast */
+    font-weight: 700; /* Bold for better readability */
 }
 
 .founder-designation {
-    font-size: 1.3rem;
+    font-size: 1.2rem; /* Increased size for visibility */
+    text-align: center;
     color: var(--coral-red);
     font-weight: 600;
-    margin-bottom: 25px;
+    margin-bottom: 25px; /* More spacing */
 }
 
 .founder-bio {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: var(--dark-gray);
-    margin-bottom: 30px;
+    font-size: 1rem; /* Increased from 0.95rem for better readability */
+    line-height: 1.8; /* Better readability */
+    text-align: left;
+    margin-bottom: 30px; /* More spacing */
+    color: #2d3748; /* Darker text for better contrast */
+    padding: 15px; /* Padding for better visual separation */
+    background: rgba(0, 107, 91, 0.02); /* Very light background tint */
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-green); /* Accent border */
 }
 
+/* Achievement stats mobile layout - Enhanced visibility */
 .founder-achievements {
-    display: flex;
-    gap: 30px;
-    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Keep 3 columns but smaller */
+    gap: 15px;
+    margin-top: 30px; /* More spacing */
 }
 
 .achievement-item {
     text-align: center;
+    padding: 20px 12px; /* Increased padding */
+    background: linear-gradient(135deg, rgba(0, 107, 91, 0.05), rgba(0, 107, 91, 0.1)); /* Subtle gradient */
+    border-radius: 12px;
+    border: 1px solid rgba(0, 107, 91, 0.15); /* Subtle border */
+    transition: transform 0.2s ease;
+}
+
+.achievement-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 107, 91, 0.15);
 }
 
 .achievement-number {
     display: block;
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: 1.7rem; /* Larger for better visibility */
+    font-weight: 800; /* Extra bold */
     color: var(--primary-green);
     margin-bottom: 5px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 .achievement-label {
-    font-size: 0.9rem;
-    color: var(--dark-gray);
-    font-weight: 500;
+    font-size: 0.9rem; /* Slightly larger */
+    color: #2d3748; /* Darker for better contrast */
+    font-weight: 600; /* Bold for better readability */
 }
 
-/* Responsive Design for Founder Section */
-@media (max-width: 1024px) {
-    .founder-card {
-        padding: 40px;
-        gap: 40px;
-    }
-    
-    .founder-image {
-        width: 240px;
-        height: 240px;
-    }
-    
-    .founder-info h3 {
-        font-size: 2rem;
-    }
-    
-    .founder-achievements {
-        gap: 25px;
-    }
+/* Mission-Vision mobile enhancements */
+.mission-vision {
+    padding: 60px 0;
+    background: var(--light-gray); /* Maintain light background */
 }
 
-@media (max-width: 768px) {
+.mv-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column for mobile */
+    gap: 25px;
+}
+
+.mv-card {
+    padding: 25px 20px;
+    margin-bottom: 10px;
+    background: var(--white); /* Ensure white background */
+    border: 1px solid rgba(0, 107, 91, 0.1); /* Subtle border */
+}
+
+.mv-card h3 {
+    font-size: 1.4rem; /* Increased for visibility */
+    margin-bottom: 15px; /* More spacing */
+    color: var(--primary-green);
+    font-weight: 700; /* Bold for better readability */
+}
+
+.mv-card p {
+    font-size: 1rem; /* Increased from 0.95rem */
+    line-height: 1.7; /* Better readability */
+    color: #2d3748; /* Darker text for better contrast */
+}
+
+/* Responsive breakpoints with enhanced mobile-first approach */
+@media (max-width: 480px) {
+    /* Extra small mobile devices */
+    .about-content {
+        padding: 30px 0;
+        margin-top: 70px;
+    }
+    
     .founder-section {
-        padding: 60px 0;
+        background: var(--white); /* Ensure white background */
     }
     
     .founder-section h2 {
-        font-size: 2rem;
-        margin-bottom: 40px;
+        font-size: 1.9rem; /* Increased for visibility */
+        margin-bottom: 30px;
+        text-align: center;
+        padding: 0 15px;
+        color: var(--primary-green);
+        font-weight: 700;
     }
     
     .founder-card {
-        flex-direction: column;
-        text-align: center;
-        padding: 30px;
+        padding: 25px 15px; /* Better padding */
+        gap: 20px;
+        background: var(--white);
+        margin: 0 10px; /* Side margins */
+    }
+    
+    .founder-image {
+        width: 160px; /* Slightly larger for better visibility */
+        height: 160px;
+        border-radius: 50%; /* Keep circular */
+        border: 3px solid var(--primary-green);
+    }
+    
+    .founder-info h3 {
+        font-size: 1.6rem; /* Increased for visibility */
+        color: var(--primary-green);
+        font-weight: 700;
+    }
+    
+    .founder-designation {
+        font-size: 1.1rem;
+        color: var(--coral-red);
+        font-weight: 600;
+    }
+    
+    .founder-bio {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        padding: 15px;
+        color: #2d3748; /* Dark text for contrast */
+        background: rgba(0, 107, 91, 0.03);
+    }
+    
+    /* Achievement items stack vertically on very small screens */
+    .founder-achievements {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .achievement-item {
+        padding: 15px 12px;
+        background: linear-gradient(135deg, rgba(0, 107, 91, 0.08), rgba(0, 107, 91, 0.12));
+    }
+    
+    .achievement-number {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--primary-green);
+    }
+    
+    .achievement-label {
+        font-size: 0.85rem;
+        color: #2d3748;
+        font-weight: 600;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    /* Standard mobile devices */
+    .about-grid {
+        gap: 40px;
+    }
+    
+    .founder-section {
+        background: var(--white);
+    }
+    
+    .founder-card {
+        padding: 30px 20px;
+        background: var(--white);
+    }
+    
+    .founder-image {
+        width: 190px;
+        height: 190px;
+        border-radius: 50%; /* Keep circular */
+        border: 4px solid var(--primary-green);
+    }
+    
+    .founder-info h3 {
+        font-size: 1.8rem;
+        color: var(--primary-green);
+        font-weight: 700;
+    }
+    
+    .founder-bio {
+        color: #2d3748;
+        font-size: 0.98rem;
+    }
+    
+    .founder-achievements {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+    }
+    
+    .achievement-number {
+        font-size: 1.6rem;
+        color: var(--primary-green);
+    }
+    
+    .achievement-label {
+        color: #2d3748;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* Tablets */
+    .about-grid {
+        grid-template-columns: 1fr 1fr; /* Two columns for tablets */
+        gap: 40px;
+    }
+    
+    .founder-card {
+        flex-direction: row;
         gap: 30px;
+        padding: 35px 25px;
+        background: var(--white);
+    }
+    
+    .founder-image-container {
+        flex-shrink: 0;
+        align-self: flex-start;
     }
     
     .founder-image {
         width: 200px;
         height: 200px;
+        border-radius: 50%; /* Keep circular */
+        border: 4px solid var(--primary-green);
+    }
+    
+    .founder-info h3,
+    .founder-designation {
+        text-align: left;
     }
     
     .founder-info h3 {
-        font-size: 1.8rem;
-    }
-    
-    .founder-designation {
-        font-size: 1.1rem;
-        margin-bottom: 20px;
+        color: var(--primary-green);
+        font-weight: 700;
     }
     
     .founder-bio {
-        font-size: 1rem;
-        margin-bottom: 25px;
+        color: #2d3748;
     }
     
     .founder-achievements {
-        justify-content: center;
-        gap: 20px;
-    }
-    
-    .achievement-number {
-        font-size: 1.8rem;
-    }
-    
-    .achievement-label {
-        font-size: 0.8rem;
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
-@media (max-width: 480px) {
+@media (min-width: 1025px) {
+    /* Desktop and larger screens */
+    .about-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+    }
+    
     .founder-card {
-        padding: 20px;
+        flex-direction: row;
+        gap: 40px;
+        padding: 40px 30px;
+        background: var(--white);
     }
     
     .founder-image {
-        width: 160px;
-        height: 160px;
+        width: 250px;
+        height: 250px;
+        border-radius: 50%; /* Keep circular */
+        border: 5px solid var(--primary-green);
+    }
+    
+    .founder-info h3,
+    .founder-designation {
+        text-align: left;
     }
     
     .founder-info h3 {
-        font-size: 1.6rem;
+        color: var(--primary-green);
+        font-weight: 700;
     }
     
-    .founder-achievements {
-        flex-direction: column;
-        gap: 15px;
+    .founder-bio {
+        color: #2d3748;
+    }
+    
+    .mv-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+}
+
+/* Touch-friendly improvements for mobile */
+@media (max-width: 768px) {
+    /* Ensure all interactive elements are touch-friendly */
+    .nav-link {
+        padding: 15px 20px; /* Larger touch targets */
+        min-height: 44px; /* Apple's recommended minimum */
+    }
+    
+    /* Better spacing for readability */
+    .about-text h2 {
+        font-size: 1.8rem; /* Increased for visibility */
+        line-height: 1.3;
+        margin-bottom: 20px;
+        color: var(--primary-green);
+        font-weight: 700;
+    }
+    
+    .about-text p {
+        font-size: 1rem; /* Increased from 0.95rem */
+        line-height: 1.7;
+        margin-bottom: 18px;
+        color: #2d3748; /* Better contrast */
+    }
+    
+    /* Responsive image improvements */
+    .responsive-image {
+        border-radius: 8px;
+        margin-top: 20px;
+    }
+}
+
+/* Performance optimizations for mobile */
+@media (max-width: 768px) {
+    /* Reduce animations on mobile for better performance */
+    .founder-card,
+    .mv-card,
+    .choose-us-card {
+        transition: transform 0.2s ease;
+    }
+    
+    /* Optimize hover effects for touch devices */
+    .mv-card:hover {
+        transform: none; /* Disable hover on mobile */
+    }
+    
+    .founder-card:hover .icon-container {
+        transform: none; /* Disable complex hover animations */
+    }
+}
+
+/* Removed Dark Mode - No dark mode styles for mobile */
+/* Dark mode CSS has been completely removed as requested */
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .founder-card,
+    .mv-card,
+    .about-grid {
+        transition: none;
+        animation: none;
     }
     
     .achievement-item {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
+        transition: none;
+    }
+}
+
+/* High contrast mode support (keeping light theme) */
+@media (prefers-contrast: high) {
+    .founder-bio {
+        color: #000000; /* Pure black for maximum contrast */
+        background: rgba(0, 107, 91, 0.05);
     }
     
     .achievement-number {
-        font-size: 1.5rem;
-        margin-bottom: 0;
+        color: #000000;
     }
-}
-
-/* Animation for founder section */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
+    
+    .achievement-label {
+        color: #000000;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    
+    .founder-info h3 {
+        color: #000000;
     }
-}
-
-.founder-card {
-    animation: fadeInUp 0.8s ease-out;
+    
+    .mv-card h3 {
+        color: #000000;
+    }
+    
+    .mv-card p {
+        color: #000000;
+    }
 }

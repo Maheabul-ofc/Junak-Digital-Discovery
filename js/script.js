@@ -16,13 +16,9 @@ document.addEventListener("DOMContentLoaded", function () {
   initFormValidation();
 });
 
-const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
-mobileMenuToggle.onclick = function () {
-  initMobileMenu();
-};
-
 // Mobile Menu Functionality
 function initMobileMenu() {
+  const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
   const navMenu = document.querySelector(".nav-menu");
 
   if (mobileMenuToggle && navMenu) {
@@ -1269,6 +1265,88 @@ const courseData = {
       },
     ],
   },
+  "Graphic Design": {
+    title: "Graphic Design Courses",
+    tiers: [
+      {
+        title: "Basic Graphic Design",
+        duration: "(1 Month)",
+        price: "Rs.1600",
+        modules: [
+          "Design Fundamentals",
+          "Color Theory",
+          "Typography Basics",
+          "Adobe Photoshop",
+        ],
+      },
+      {
+        title: "Advanced Graphic Design",
+        duration: "(2 Months)",
+        price: "Rs.2800",
+        modules: [
+          "Adobe Illustrator",
+          "Brand Identity Design",
+          "Layout & Composition",
+          "Print Design",
+          "Digital Graphics",
+        ],
+      },
+      {
+        title: "Professional Designer",
+        duration: "(3 Months)",
+        price: "Rs.4200",
+        modules: [
+          "Advanced Branding",
+          "Motion Graphics",
+          "UI/UX Basics",
+          "Client Management",
+          "Portfolio Development",
+          "Freelancing Guide",
+        ],
+      },
+    ],
+  },
+  "Web Design": {
+    title: "Web Design Courses",
+    tiers: [
+      {
+        title: "Web Design Basics",
+        duration: "(1 Month)",
+        price: "Rs.1700",
+        modules: [
+          "HTML Fundamentals",
+          "CSS Basics",
+          "Responsive Design",
+          "Web Typography",
+        ],
+      },
+      {
+        title: "Advanced Web Design",
+        duration: "(2 Months)",
+        price: "Rs.3000",
+        modules: [
+          "JavaScript Basics",
+          "Interactive Design",
+          "WordPress Development",
+          "SEO for Websites",
+          "Performance Optimization",
+        ],
+      },
+      {
+        title: "Full-Stack Web Designer",
+        duration: "(4 Months)",
+        price: "Rs.5200",
+        modules: [
+          "Advanced JavaScript",
+          "Backend Basics",
+          "Database Integration",
+          "E-commerce Design",
+          "Professional Projects",
+          "Career Support",
+        ],
+      },
+    ],
+  },
 };
 
 // Get DOM elements
@@ -1355,6 +1433,8 @@ function closeModal() {
   document.body.style.overflow = "auto";
 }
 
+
+
 function createTierCard(tier) {
   const card = document.createElement("div");
   card.className = "tier-card";
@@ -1403,6 +1483,8 @@ function createTierCard(tier) {
   return card;
 }
 
+
+//further code
 // course image sliding
 
 // Slideshow functionality
@@ -1555,7 +1637,11 @@ document.addEventListener("DOMContentLoaded", () => {
   showSlide(0);
 });
 
-// Home section image sliding
+
+///////////////////////////////////////////////////// Home section image sliding   \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
 
 //---------------------------- Course view details button --------------------------//
 // Integrated Course Details System
@@ -1581,240 +1667,495 @@ document.addEventListener("DOMContentLoaded", function () {
   // Initialize integrated course details system
   initIntegratedCourseDetailsSystem();
 });
-
 // Integrated Course Details System
 function initIntegratedCourseDetailsSystem() {
   // Course details data for "View Details" modal
 const courseDetails = {
   "Digital Marketing": {
-  topics: [
-    // Month 1
-    "<span class='month-title'>MONTH 1</span>",
-    "1. INTRODUCTION TO DIGITAL MARKETING & CAREER SCOPE",
-    "2. WEBSITE BASICS & BASIC WEBSITE DESIGN (WORDPRESS/NO-CODE)",
-    "3. FUNDAMENTALS OF SEO (ON-PAGE)",
-    "4. SEO OFF-PAGE & LINK BUILDING",
-    "5. GOOGLE MY BUSINESS REGISTRATION & LOCAL SEO",
-    "6. SOCIAL MEDIA MARKETING FUNDAMENTALS",
-    "7. BASIC DESIGN WITH CANVA & CREATIVE TOOLS",
-    "8. CONTENT STRATEGY & CALENDAR",
+    topics: [
+      // Month 1
+      "<span class='month-title'>MONTH 1</span>",
+      "1. INTRODUCTION TO DIGITAL MARKETING & CAREER SCOPE",
+      "2. WEBSITE BASICS & BASIC WEBSITE DESIGN (WORDPRESS/NO-CODE)",
+      "3. FUNDAMENTALS OF SEO (ON-PAGE)",
+      "4. SEO OFF-PAGE & LINK BUILDING",
+      "5. GOOGLE MY BUSINESS REGISTRATION & LOCAL SEO",
+      "6. SOCIAL MEDIA MARKETING FUNDAMENTALS",
+      "7. BASIC DESIGN WITH CANVA & CREATIVE TOOLS",
+      "8. CONTENT STRATEGY & CALENDAR",
 
-    // Month 2
-    "<span class='month-title'>MONTH 2</span>",
-    "9. BASIC GOOGLE SEARCH ADS SETUP",
-    "10. PAID ADS BASICS (INTRO TO GOOGLE & META ADS)",
-    "11. FACEBOOK & INSTAGRAM MARKETING BASICS",
-    "12. WHATSAPP & EMAIL MARKETING BASICS",
-    "13. MOBILE MARKETING & APP PROMOTION",
-    "14. ANALYTICS BASICS (GOOGLE ANALYTICS, META INSIGHTS)",
-    "15. ONLINE REPUTATION MANAGEMENT (ORM)",
-    "16. MINI PROJECT 1: CREATE WEBSITE + RUN GMB LISTING",
+      // Month 2
+      "<span class='month-title'>MONTH 2</span>",
+      "9. BASIC GOOGLE SEARCH ADS SETUP",
+      "10. PAID ADS BASICS (INTRO TO GOOGLE & META ADS)",
+      "11. FACEBOOK & INSTAGRAM MARKETING BASICS",
+      "12. WHATSAPP & EMAIL MARKETING BASICS",
+      "13. MOBILE MARKETING & APP PROMOTION",
+      "14. ANALYTICS BASICS (GOOGLE ANALYTICS, META INSIGHTS)",
+      "15. ONLINE REPUTATION MANAGEMENT (ORM)",
+      "16. MINI PROJECT 1: CREATE WEBSITE + RUN GMB LISTING",
 
-    // Month 3
-    "<span class='month-title'>MONTH 3</span>",
-    "17. INFLUENCER & AFFILIATE MARKETING BASICS",
-    "18. BLOGGING & CONTENT MARKETING",
-    "19. COPYWRITING FOR ADS & SOCIAL MEDIA",
-    "20. MARKETING AUTOMATION BASICS",
-    "21. INTRO TO E-COMMERCE MARKETING",
-    "22. FREELANCING BASICS IN DIGITAL MARKETING",
-    "23. CASE STUDIES OF SUCCESSFUL CAMPAIGNS",
-    "24. FINAL PROJECT & PRESENTATION"
-  ],
-},
+      // Month 3
+      "<span class='month-title'>MONTH 3</span>",
+      "17. INFLUENCER & AFFILIATE MARKETING BASICS",
+      "18. BLOGGING & CONTENT MARKETING",
+      "19. COPYWRITING FOR ADS & SOCIAL MEDIA",
+      "20. MARKETING AUTOMATION BASICS",
+      "21. INTRO TO E-COMMERCE MARKETING",
+      "22. FREELANCING BASICS IN DIGITAL MARKETING",
+      "23. CASE STUDIES OF SUCCESSFUL CAMPAIGNS",
+      "24. FINAL PROJECT & PRESENTATION"
+    ],
+  },
 
+  "Advance Digital Marketing": {
+    topics: [
+      // Note about prerequisites
+      "1-3 MONTH DIGITAL MARKETING FUNDAMENTALS COURSE",
 
-"Advance Digital Marketing": {
-  topics: [
-    // Note about prerequisites
-    "1-3 MONTH DIGITAL MARKETING FUNDAMENTALS COURSE",
+      // Month 4
+      "<span class='month-title'>MONTH 4</span>",
+      "25. ADVANCED SEO (TECHNICAL SEO, SCHEMA, TOOLS)",
+      "26. ADVANCED PAID ADS (CAMPAIGN STRUCTURES, RETARGETING)",
+      "27. LANDING PAGE DESIGN & CRO (CONVERSION OPTIMIZATION)",
+      "28. WHATSAPP AUTOMATION TOOLS (WATI, AI CHATBOTS)",
+      "29. EMAIL AUTOMATION (MAILCHIMP, HUBSPOT)",
+      "30. AI TOOLS FOR MARKETING (COPYWRITING, SCHEDULING, OPTIMIZATION)",
+      "31. IMAGE-TO-VIDEO & TEXT-TO-IMAGE TOOLS (CANVA AI, PICTORY, D-ID, RUNWAY ML)",
+      "32. MINI PROJECT 2: GOOGLE ADS + WHATSAPP AUTOMATION",
 
-    // Month 4
-    "<span class='month-title'>MONTH 4</span>",
-    "25. ADVANCED SEO (TECHNICAL SEO, SCHEMA, TOOLS)",
-    "26. ADVANCED PAID ADS (CAMPAIGN STRUCTURES, RETARGETING)",
-    "27. LANDING PAGE DESIGN & CRO (CONVERSION OPTIMIZATION)",
-    "28. WHATSAPP AUTOMATION TOOLS (WATI, AI CHATBOTS)",
-    "29. EMAIL AUTOMATION (MAILCHIMP, HUBSPOT)",
-    "30. AI TOOLS FOR MARKETING (COPYWRITING, SCHEDULING, OPTIMIZATION)",
-    "31. IMAGE-TO-VIDEO & TEXT-TO-IMAGE TOOLS (CANVA AI, PICTORY, D-ID, RUNWAY ML)",
-    "32. MINI PROJECT 2: GOOGLE ADS + WHATSAPP AUTOMATION",
+      // Month 5
+      "<span class='month-title'>MONTH 5</span>",
+      "33. E-COMMERCE WEBSITE BUILDING (SHOPIFY, WOOCOMMERCE)",
+      "34. GOOGLE SHOPPING ADS SETUP",
+      "35. FUNNEL BUILDING (LEAD GEN, NURTURING, SALES FUNNELS)",
+      "36. BRANDING STRATEGIES FOR STARTUPS",
+      "37. LINKEDIN & B2B MARKETING",
+      "38. QUORA, REDDIT & MICRO-CONTENT MARKETING",
+      "39. EVENT MARKETING & WEBINARS",
+      "40. CASE STUDY DISCUSSIONS",
 
-    // Month 5
-    "<span class='month-title'>MONTH 5</span>",
-    "33. E-COMMERCE WEBSITE BUILDING (SHOPIFY, WOOCOMMERCE)",
-    "34. GOOGLE SHOPPING ADS SETUP",
-    "35. FUNNEL BUILDING (LEAD GEN, NURTURING, SALES FUNNELS)",
-    "36. BRANDING STRATEGIES FOR STARTUPS",
-    "37. LINKEDIN & B2B MARKETING",
-    "38. QUORA, REDDIT & MICRO-CONTENT MARKETING",
-    "39. EVENT MARKETING & WEBINARS",
-    "40. CASE STUDY DISCUSSIONS",
+      // Month 6
+      "<span class='month-title'>MONTH 6</span>",
+      "41. ADVANCED ANALYTICS (GA4, TAG MANAGER, LOOKER STUDIO)",
+      "42. MARKETING DASHBOARDS & REPORTS",
+      "43. GOOGLE PERFORMANCE MAX ADS (GOOGLE PLEX ADS)",
+      "44. SCALING FREELANCE AGENCY MODEL",
+      "45. AI IN CONTENT MARKETING (CHATGPT, JASPER)",
+      "46. INFLUENCER & AFFILIATE COLLABORATION ADVANCED",
+      "47. MINI PROJECT 3: E-COMMERCE STORE + SHOPPING ADS",
+      "48. FINAL PRESENTATION & VIVA"
+    ],
+  },
 
-    // Month 6
-    "<span class='month-title'>MONTH 6</span>",
-    "41. ADVANCED ANALYTICS (GA4, TAG MANAGER, LOOKER STUDIO)",
-    "42. MARKETING DASHBOARDS & REPORTS",
-    "43. GOOGLE PERFORMANCE MAX ADS (GOOGLE PLEX ADS)",
-    "44. SCALING FREELANCE AGENCY MODEL",
-    "45. AI IN CONTENT MARKETING (CHATGPT, JASPER)",
-    "46. INFLUENCER & AFFILIATE COLLABORATION ADVANCED",
-    "47. MINI PROJECT 3: E-COMMERCE STORE + SHOPPING ADS",
-    "48. FINAL PRESENTATION & VIVA"
-  ],
-},
+  "Profesional Digital Marketing": {
+    topics: [
+      // Note about course flow
+      "1-3 MONTH DIGITAL MARKETING FUNDAMENTALS COURSE",
+      "3-6 MONTH ADVANCE DIGITAL MARKETING",
 
+      // Month 7
+      "<span class='month-title'>MONTH 7</span>",
+      "49. AI-POWERED AD MAKING (META AI, GOOGLE AI, CANVA AI ADS)",
+      "50. REELS MARKETING & VIRAL CONTENT STRATEGIES",
+      "51. VIDEO EDITING TOOLS (CAPCUT, PREMIERE PRO, AI EDITORS)",
+      "52. AI CHARACTER DESIGN & VIRTUAL INFLUENCERS (HEYGEN, SYNTHESIA, REFACE)",
+      "53. GROWTH HACKING & VIRAL MARKETING",
+      "54. NEUROMARKETING & CONSUMER PSYCHOLOGY",
+      "55. CRM TOOLS & ADVANCED AUTOMATION",
+      "56. MINI PROJECT 4: AI-POWERED REELS & ADS",
 
-"Profesional Digital Marketing": {
-  topics: [
-    // Note about course flow
-    "1-3 MONTH DIGITAL MARKETING FUNDAMENTALS COURSE",
-    "3-6 MONTH ADVANCE DIGITAL MARKETING",
+      // Month 8
+      "<span class='month-title'>MONTH 8</span>",
+      "57. YOUTUBE MARKETING & GROWTH STRATEGY",
+      "58. YOUTUBE SEO (RANKING, TAGS, ANALYTICS)",
+      "59. PROGRAMMATIC ADVERTISING & MEDIA BUYING",
+      "60. INTERNATIONAL DIGITAL MARKETING & LOCALIZATION",
+      "61. PERSONAL BRANDING & THOUGHT LEADERSHIP",
+      "62. CORPORATE TRAINING IN DIGITAL MARKETING",
+      "63. LIVE CAMPAIGN MANAGEMENT (INDUSTRY PROJECT)",
+      "64. INDUSTRY EXPERT MASTERCLASS",
 
-    // Month 7
-    "<span class='month-title'>MONTH 7</span>",
-    "49. AI-POWERED AD MAKING (META AI, GOOGLE AI, CANVA AI ADS)",
-    "50. REELS MARKETING & VIRAL CONTENT STRATEGIES",
-    "51. VIDEO EDITING TOOLS (CAPCUT, PREMIERE PRO, AI EDITORS)",
-    "52. AI CHARACTER DESIGN & VIRTUAL INFLUENCERS (HEYGEN, SYNTHESIA, REFACE)",
-    "53. GROWTH HACKING & VIRAL MARKETING",
-    "54. NEUROMARKETING & CONSUMER PSYCHOLOGY",
-    "55. CRM TOOLS & ADVANCED AUTOMATION",
-    "56. MINI PROJECT 4: AI-POWERED REELS & ADS",
+      // Month 9
+      "<span class='month-title'>MONTH 9</span>",
+      "65. ADVANCED FREELANCE MARKETPLACE MASTERY",
+      "66. AGENCY BUILDING & CLIENT MANAGEMENT",
+      "67. CASE STUDIES (AMAZON, ZOMATO, FLIPKART, NYKAA)",
+      "68. INFLUENCER CONTRACTING & MONETIZATION",
+      "69. CAPSTONE PROJECT (FULL FUNNEL AI CAMPAIGN)",
+      "70. PORTFOLIO & RESUME DEVELOPMENT",
+      "71. MOCK INTERVIEWS & CAREER GUIDANCE",
+      "72. FINAL PROJECT DEFENSE & CERTIFICATION",
 
-    // Month 8
-    "<span class='month-title'>MONTH 8</span>",
-    "57. YOUTUBE MARKETING & GROWTH STRATEGY",
-    "58. YOUTUBE SEO (RANKING, TAGS, ANALYTICS)",
-    "59. PROGRAMMATIC ADVERTISING & MEDIA BUYING",
-    "60. INTERNATIONAL DIGITAL MARKETING & LOCALIZATION",
-    "61. PERSONAL BRANDING & THOUGHT LEADERSHIP",
-    "62. CORPORATE TRAINING IN DIGITAL MARKETING",
-    "63. LIVE CAMPAIGN MANAGEMENT (INDUSTRY PROJECT)",
-    "64. INDUSTRY EXPERT MASTERCLASS",
+      // Month 10 – Internship (Part 1)
+      "<span class='month-title'>MONTH 10 – INTERNSHIP (PART 1)</span>",
+      "1. INTERNSHIP ORIENTATION & PROJECT ALLOCATION",
+      "2. COMPETITOR ANALYSIS FOR LIVE CLIENT",
+      "3. KEYWORD RESEARCH FOR CLIENT CAMPAIGN",
+      "4. WEBSITE OPTIMIZATION TASK",
+      "5. GOOGLE ADS LIVE CAMPAIGN SETUP",
+      "6. SOCIAL MEDIA STRATEGY FOR CLIENT",
+      "7. SEO OPTIMIZATION & REPORTING",
+      "8. INTERNSHIP PROGRESS REVIEW",
 
-    // Month 9
-    "<span class='month-title'>MONTH 9</span>",
-    "65. ADVANCED FREELANCE MARKETPLACE MASTERY",
-    "66. AGENCY BUILDING & CLIENT MANAGEMENT",
-    "67. CASE STUDIES (AMAZON, ZOMATO, FLIPKART, NYKAA)",
-    "68. INFLUENCER CONTRACTING & MONETIZATION",
-    "69. CAPSTONE PROJECT (FULL FUNNEL AI CAMPAIGN)",
-    "70. PORTFOLIO & RESUME DEVELOPMENT",
-    "71. MOCK INTERVIEWS & CAREER GUIDANCE",
-    "72. FINAL PROJECT DEFENSE & CERTIFICATION",
+      // Month 11 – Internship (Part 2)
+      "<span class='month-title'>MONTH 11 – INTERNSHIP (PART 2)</span>",
+      "1. CONTENT CALENDAR FOR CLIENT PROJECT",
+      "2. FACEBOOK & INSTAGRAM ADS (LIVE EXECUTION)",
+      "3. YOUTUBE MARKETING FOR CLIENT",
+      "4. WHATSAPP & EMAIL AUTOMATION FOR CLIENT",
+      "5. INFLUENCER COLLABORATION EXECUTION",
+      "6. ANALYTICS & REPORT SUBMISSION",
+      "7. ROI & BUDGET ANALYSIS",
+      "8. INTERNSHIP EVALUATION & FEEDBACK",
 
-    // Month 10 – Internship (Part 1)
-    "<span class='month-title'>MONTH 10 – INTERNSHIP (PART 1)</span>",
-    "1. INTERNSHIP ORIENTATION & PROJECT ALLOCATION",
-    "2. COMPETITOR ANALYSIS FOR LIVE CLIENT",
-    "3. KEYWORD RESEARCH FOR CLIENT CAMPAIGN",
-    "4. WEBSITE OPTIMIZATION TASK",
-    "5. GOOGLE ADS LIVE CAMPAIGN SETUP",
-    "6. SOCIAL MEDIA STRATEGY FOR CLIENT",
-    "7. SEO OPTIMIZATION & REPORTING",
-    "8. INTERNSHIP PROGRESS REVIEW",
+      // Month 12 – Professional Training
+      "<span class='month-title'>MONTH 12 – PROFESSIONAL TRAINING</span>",
+      "1. INDUSTRY-LEVEL DIGITAL MARKETING TRENDS",
+      "2. ADVANCED AI TOOLS FOR MARKETING",
+      "3. PROFESSIONAL CLIENT PROPOSAL & PITCHING",
+      "4. AGENCY-STYLE TEAM COLLABORATION",
+      "5. INTERNATIONAL FREELANCING & CLIENT HANDLING",
+      "6. CASE STUDIES FROM AGENCIES",
+      "7. CAPSTONE PROJECT PRESENTATION",
+      "8. CAREER GUIDANCE & PLACEMENT SUPPORT"
+    ],
+  },
 
-    // Month 11 – Internship (Part 2)
-    "<span class='month-title'>MONTH 11 – INTERNSHIP (PART 2)</span>",
-    "1. CONTENT CALENDAR FOR CLIENT PROJECT",
-    "2. FACEBOOK & INSTAGRAM ADS (LIVE EXECUTION)",
-    "3. YOUTUBE MARKETING FOR CLIENT",
-    "4. WHATSAPP & EMAIL AUTOMATION FOR CLIENT",
-    "5. INFLUENCER COLLABORATION EXECUTION",
-    "6. ANALYTICS & REPORT SUBMISSION",
-    "7. ROI & BUDGET ANALYSIS",
-    "8. INTERNSHIP EVALUATION & FEEDBACK",
+  "AI Power Marketing": {
+    topics: [
+      "CLASS 1 – INTRODUCTION TO AI IN MARKETING",
+      "CLASS 2 – AI TOOLS FOR CONTENT CREATION (COPY, BLOGS, ADS)",
+      "CLASS 3 – AI-POWERED GRAPHIC DESIGN (CANVA, ADOBE FIREFLY, ETC.)",
+      "CLASS 4 – AI VIDEO CREATION & EDITING TOOLS",
+      "CLASS 5 – AI FOR SOCIAL MEDIA MANAGEMENT (SCHEDULING, CAPTIONS, INSIGHTS)",
+      "CLASS 6 – AI IN SEO & KEYWORD RESEARCH",
+      "CLASS 7 – AI FOR EMAIL & AUTOMATION (CHATGPT, MAILCHIMP AI)",
+      "CLASS 8 – CAPSTONE PROJECT: AI-POWERED CAMPAIGN"
+    ],
+  },
 
-    // Month 12 – Professional Training
-    "<span class='month-title'>MONTH 12 – PROFESSIONAL TRAINING</span>",
-    "1. INDUSTRY-LEVEL DIGITAL MARKETING TRENDS",
-    "2. ADVANCED AI TOOLS FOR MARKETING",
-    "3. PROFESSIONAL CLIENT PROPOSAL & PITCHING",
-    "4. AGENCY-STYLE TEAM COLLABORATION",
-    "5. INTERNATIONAL FREELANCING & CLIENT HANDLING",
-    "6. CASE STUDIES FROM AGENCIES",
-    "7. CAPSTONE PROJECT PRESENTATION",
-    "8. CAREER GUIDANCE & PLACEMENT SUPPORT"
-  ],
-},
+  "Advance AI Power Marketing": {
+    topics: [
+      "MONTH 1 – AI POWER MARKETING TOOLS",
 
+      "<span class='month-title'>MONTH 2</span>",
+      "CLASS 9 – AI FOR MARKET RESEARCH & CONSUMER INSIGHTS",
+      "CLASS 10 – AI-POWERED AD TARGETING (META ADS AI, GOOGLE ADS AI)",
+      "CLASS 11 – AI IN PERSONALIZATION & CUSTOMER JOURNEY MAPPING",
+      "CLASS 12 – CHATBOTS & CONVERSATIONAL AI (MANYCHAT, INTERCOM, DRIFT)",
+      "CLASS 13 – AI IN E-COMMERCE (RECOMMENDATION ENGINES, SMART UPSELLING)",
+      "CLASS 14 – PREDICTIVE ANALYTICS FOR MARKETING",
+      "CLASS 15 – AI TOOLS FOR INFLUENCER & AFFILIATE MARKETING",
+      "CLASS 16 – AI IN SOCIAL LISTENING & BRAND MONITORING",
+      "CLASS 17 – GENERATIVE AI FOR CREATIVE CAMPAIGNS",
+      "CLASS 18 – AI IN VIDEO ADS (VOICEOVER, DUBBING, AUTO-EDITING)",
+      "CLASS 19 – AI FOR PERFORMANCE TRACKING & REPORTING (DASHBOARDS)",
+      "CLASS 20 – ETHICS, RISKS & LIMITATIONS OF AI IN MARKETING",
+      "CLASS 21 – FUTURE OF AI IN DIGITAL MARKETING",
+      "CLASS 22 – CASE STUDIES: BRANDS USING AI SUCCESSFULLY",
+      "CLASS 23 – PROJECT LAB: DESIGNING A FULL AI-POWERED MARKETING PLAN",
+      "CLASS 24 – FINAL PRESENTATION & CERTIFICATION"
+    ],
+  },
 
-    "AI Power Marketing": {
-  topics: [
-    "CLASS 1 – INTRODUCTION TO AI IN MARKETING",
-    "CLASS 2 – AI TOOLS FOR CONTENT CREATION (COPY, BLOGS, ADS)",
-    "CLASS 3 – AI-POWERED GRAPHIC DESIGN (CANVA, ADOBE FIREFLY, ETC.)",
-    "CLASS 4 – AI VIDEO CREATION & EDITING TOOLS",
-    "CLASS 5 – AI FOR SOCIAL MEDIA MANAGEMENT (SCHEDULING, CAPTIONS, INSIGHTS)",
-    "CLASS 6 – AI IN SEO & KEYWORD RESEARCH",
-    "CLASS 7 – AI FOR EMAIL & AUTOMATION (CHATGPT, MAILCHIMP AI)",
-    "CLASS 8 – CAPSTONE PROJECT: AI-POWERED CAMPAIGN"
-  ],
-},
+  "Startup launch": {
+    topics: [
+      // MONTH 1 – STARTUP FOUNDATIONS & BUSINESS BASICS
+      "<span class='month-title'>MONTH 1 – STARTUP FOUNDATIONS & BUSINESS BASICS</span>",
+      "CLASS 1 – INTRODUCTION TO STARTUPS & ENTREPRENEURIAL MINDSET",
+      "CLASS 2 – IDENTIFYING PROFITABLE BUSINESS IDEAS & NICHES",
+      "CLASS 3 – MARKET RESEARCH & COMPETITOR ANALYSIS",
+      "CLASS 4 – BUSINESS MODEL CANVAS & LEAN STARTUP PRINCIPLES",
+      "CLASS 5 – LEGAL STRUCTURE, REGISTRATION & COMPLIANCE BASICS",
+      "CLASS 6 – BRANDING ESSENTIALS: NAME, LOGO, IDENTITY",
+      "CLASS 7 – BUILDING A PROFESSIONAL PORTFOLIO/WEBSITE",
+      "CLASS 8 – MINI PROJECT 1: CREATE A BUSINESS IDEA PITCH",
 
-    "Advance AI Power Marketing": {
-  topics: [
-    "MONTH 1 – AI POWER MARKETING TOOLS",
+      // MONTH 2 – FREELANCING & DIGITAL BUSINESS SKILLS
+      "<span class='month-title'>MONTH 2 – FREELANCING & DIGITAL BUSINESS SKILLS</span>",
+      "CLASS 9 – FREELANCING PLATFORMS (UPWORK, FIVERR, LINKEDIN)",
+      "CLASS 10 – CREATING WINNING FREELANCE PROFILES & PORTFOLIOS",
+      "CLASS 11 – PROPOSAL WRITING & CLIENT COMMUNICATION SKILLS",
+      "CLASS 12 – PRICING STRATEGIES & NEGOTIATION TACTICS",
+      "CLASS 13 – TIME MANAGEMENT & PRODUCTIVITY TOOLS",
+      "CLASS 14 – BUILDING AN ONLINE PRESENCE (PERSONAL BRANDING & SOCIAL MEDIA)",
+      "CLASS 15 – PAYMENT GATEWAYS, CONTRACTS & INVOICING",
+      "CLASS 16 – MINI PROJECT 2: CREATE A FREELANCE SERVICE PROFILE",
 
-    "<span class='month-title'>MONTH 2</span>",
-    "CLASS 9 – AI FOR MARKET RESEARCH & CONSUMER INSIGHTS",
-    "CLASS 10 – AI-POWERED AD TARGETING (META ADS AI, GOOGLE ADS AI)",
-    "CLASS 11 – AI IN PERSONALIZATION & CUSTOMER JOURNEY MAPPING",
-    "CLASS 12 – CHATBOTS & CONVERSATIONAL AI (MANYCHAT, INTERCOM, DRIFT)",
-    "CLASS 13 – AI IN E-COMMERCE (RECOMMENDATION ENGINES, SMART UPSELLING)",
-    "CLASS 14 – PREDICTIVE ANALYTICS FOR MARKETING",
-    "CLASS 15 – AI TOOLS FOR INFLUENCER & AFFILIATE MARKETING",
-    "CLASS 16 – AI IN SOCIAL LISTENING & BRAND MONITORING",
-    "CLASS 17 – GENERATIVE AI FOR CREATIVE CAMPAIGNS",
-    "CLASS 18 – AI IN VIDEO ADS (VOICEOVER, DUBBING, AUTO-EDITING)",
-    "CLASS 19 – AI FOR PERFORMANCE TRACKING & REPORTING (DASHBOARDS)",
-    "CLASS 20 – ETHICS, RISKS & LIMITATIONS OF AI IN MARKETING",
-    "CLASS 21 – FUTURE OF AI IN DIGITAL MARKETING",
-    "CLASS 22 – CASE STUDIES: BRANDS USING AI SUCCESSFULLY",
-    "CLASS 23 – PROJECT LAB: DESIGNING A FULL AI-POWERED MARKETING PLAN",
-    "CLASS 24 – FINAL PRESENTATION & CERTIFICATION"
-  ],
-},
+      // MONTH 3 – LAUNCH, GROWTH & SCALING
+      "<span class='month-title'>MONTH 3 – LAUNCH, GROWTH & SCALING</span>",
+      "CLASS 17 – STARTUP FUNDING (BOOTSTRAPPING, ANGEL, VC)",
+      "CLASS 18 – DIGITAL MARKETING FOR STARTUPS & FREELANCERS",
+      "CLASS 19 – SALES FUNNEL & CUSTOMER ACQUISITION STRATEGIES",
+      "CLASS 20 – NETWORKING & COLLABORATION SKILLS",
+      "CLASS 21 – CLIENT RELATIONSHIP MANAGEMENT & RETENTION",
+      "CLASS 22 – SCALING A FREELANCE CAREER INTO AN AGENCY",
+      "CLASS 23 – CAPSTONE PROJECT: STARTUP LAUNCH PLAN OR FREELANCE GROWTH PLAN",
+      "CLASS 24 – FINAL PRESENTATION, FEEDBACK & CERTIFICATION"
+    ]
+  },
 
-    "Startup launch": {
-  topics: [
-    // MONTH 1 – STARTUP FOUNDATIONS & BUSINESS BASICS
-    "<span class='month-title'>MONTH 1 – STARTUP FOUNDATIONS & BUSINESS BASICS</span>",
-    "CLASS 1 – INTRODUCTION TO STARTUPS & ENTREPRENEURIAL MINDSET",
-    "CLASS 2 – IDENTIFYING PROFITABLE BUSINESS IDEAS & NICHES",
-    "CLASS 3 – MARKET RESEARCH & COMPETITOR ANALYSIS",
-    "CLASS 4 – BUSINESS MODEL CANVAS & LEAN STARTUP PRINCIPLES",
-    "CLASS 5 – LEGAL STRUCTURE, REGISTRATION & COMPLIANCE BASICS",
-    "CLASS 6 – BRANDING ESSENTIALS: NAME, LOGO, IDENTITY",
-    "CLASS 7 – BUILDING A PROFESSIONAL PORTFOLIO/WEBSITE",
-    "CLASS 8 – MINI PROJECT 1: CREATE A BUSINESS IDEA PITCH",
+  // NEW COURSES BELOW
 
-    // MONTH 2 – FREELANCING & DIGITAL BUSINESS SKILLS
-    "<span class='month-title'>MONTH 2 – FREELANCING & DIGITAL BUSINESS SKILLS</span>",
-    "CLASS 9 – FREELANCING PLATFORMS (UPWORK, FIVERR, LINKEDIN)",
-    "CLASS 10 – CREATING WINNING FREELANCE PROFILES & PORTFOLIOS",
-    "CLASS 11 – PROPOSAL WRITING & CLIENT COMMUNICATION SKILLS",
-    "CLASS 12 – PRICING STRATEGIES & NEGOTIATION TACTICS",
-    "CLASS 13 – TIME MANAGEMENT & PRODUCTIVITY TOOLS",
-    "CLASS 14 – BUILDING AN ONLINE PRESENCE (PERSONAL BRANDING & SOCIAL MEDIA)",
-    "CLASS 15 – PAYMENT GATEWAYS, CONTRACTS & INVOICING",
-    "CLASS 16 – MINI PROJECT 2: CREATE A FREELANCE SERVICE PROFILE",
+  "E-Commerce & Online Business Development": {
+    topics: [
+      // Month 1 - E-commerce Fundamentals
+      "<span class='month-title'>MONTH 1 - E-COMMERCE FUNDAMENTALS</span>",
+      "1. INTRODUCTION TO E-COMMERCE & ONLINE BUSINESS MODELS",
+      "2. MARKET RESEARCH & NICHE IDENTIFICATION",
+      "3. LEGAL REQUIREMENTS & BUSINESS REGISTRATION FOR E-COMMERCE",
+      "4. CHOOSING THE RIGHT E-COMMERCE PLATFORM (SHOPIFY, WOOCOMMERCE, AMAZON)",
+      "5. PRODUCT SOURCING & SUPPLIER MANAGEMENT",
+      "6. INVENTORY MANAGEMENT BASICS",
+      "7. E-COMMERCE WEBSITE DESIGN PRINCIPLES",
+      "8. MINI PROJECT 1: SET UP BASIC E-COMMERCE STORE",
 
-    // MONTH 3 – LAUNCH, GROWTH & SCALING
-    "<span class='month-title'>MONTH 3 – LAUNCH, GROWTH & SCALING</span>",
-    "CLASS 17 – STARTUP FUNDING (BOOTSTRAPPING, ANGEL, VC)",
-    "CLASS 18 – DIGITAL MARKETING FOR STARTUPS & FREELANCERS",
-    "CLASS 19 – SALES FUNNEL & CUSTOMER ACQUISITION STRATEGIES",
-    "CLASS 20 – NETWORKING & COLLABORATION SKILLS",
-    "CLASS 21 – CLIENT RELATIONSHIP MANAGEMENT & RETENTION",
-    "CLASS 22 – SCALING A FREELANCE CAREER INTO AN AGENCY",
-    "CLASS 23 – CAPSTONE PROJECT: STARTUP LAUNCH PLAN OR FREELANCE GROWTH PLAN",
-    "CLASS 24 – FINAL PRESENTATION, FEEDBACK & CERTIFICATION"
-  ]
-},
+      // Month 2 - Digital Marketing for E-commerce
+      "<span class='month-title'>MONTH 2 - DIGITAL MARKETING FOR E-COMMERCE</span>",
+      "9. E-COMMERCE SEO & PRODUCT OPTIMIZATION",
+      "10. GOOGLE SHOPPING ADS & PRODUCT LISTINGS",
+      "11. FACEBOOK & INSTAGRAM ADS FOR E-COMMERCE",
+      "12. EMAIL MARKETING FOR ONLINE STORES",
+      "13. CONVERSION RATE OPTIMIZATION (CRO)",
+      "14. CUSTOMER REVIEWS & REPUTATION MANAGEMENT",
+      "15. AFFILIATE & INFLUENCER MARKETING FOR E-COMMERCE",
+      "16. MINI PROJECT 2: CREATE COMPLETE MARKETING CAMPAIGN",
 
-  };
+      // Month 3 - Scaling & Advanced Strategies
+      "<span class='month-title'>MONTH 3 - SCALING & ADVANCED STRATEGIES</span>",
+      "17. PAYMENT GATEWAYS & SECURITY MEASURES",
+      "18. LOGISTICS & SHIPPING OPTIMIZATION",
+      "19. CUSTOMER SERVICE & CHAT SUPPORT SYSTEMS",
+      "20. ANALYTICS & PERFORMANCE TRACKING",
+      "21. MARKETPLACE SELLING (AMAZON, FLIPKART, ETSY)",
+      "22. INTERNATIONAL E-COMMERCE & CROSS-BORDER SELLING",
+      "23. SCALING STRATEGIES & AUTOMATION TOOLS",
+      "24. FINAL PROJECT: LAUNCH COMPLETE E-COMMERCE BUSINESS"
+    ],
+  },
+
+  "Journalism and Mass Communication": {
+    topics: [
+      // Month 1 - Journalism Fundamentals
+      "<span class='month-title'>MONTH 1 - JOURNALISM FUNDAMENTALS</span>",
+      "1. INTRODUCTION TO JOURNALISM & MEDIA LANDSCAPE",
+      "2. NEWS WRITING PRINCIPLES & INVERTED PYRAMID STRUCTURE",
+      "3. RESEARCH TECHNIQUES & FACT-CHECKING METHODS",
+      "4. INTERVIEW SKILLS & SOURCE DEVELOPMENT",
+      "5. ETHICS IN JOURNALISM & MEDIA LAW BASICS",
+      "6. PRINT JOURNALISM & NEWSPAPER LAYOUT",
+      "7. FEATURE WRITING & HUMAN INTEREST STORIES",
+      "8. MINI PROJECT 1: CREATE NEWS PORTFOLIO",
+
+      // Month 2 - Digital Media & Broadcasting
+      "<span class='month-title'>MONTH 2 - DIGITAL MEDIA & BROADCASTING</span>",
+      "9. DIGITAL JOURNALISM & ONLINE PUBLISHING",
+      "10. SOCIAL MEDIA JOURNALISM & LIVE REPORTING",
+      "11. RADIO JOURNALISM & PODCASTING BASICS",
+      "12. TELEVISION NEWS PRODUCTION & ANCHORING",
+      "13. MOBILE JOURNALISM (MOJO) & CITIZEN REPORTING",
+      "14. VIDEO EDITING FOR NEWS & DOCUMENTARIES",
+      "15. DATA JOURNALISM & INFOGRAPHICS",
+      "16. MINI PROJECT 2: CREATE MULTIMEDIA NEWS PACKAGE",
+
+      // Month 3 - Specialized Areas & Career Development
+      "<span class='month-title'>MONTH 3 - SPECIALIZED AREAS & CAREER DEVELOPMENT</span>",
+      "17. SPORTS JOURNALISM & BEAT REPORTING",
+      "18. BUSINESS & FINANCIAL JOURNALISM",
+      "19. ENTERTAINMENT & LIFESTYLE JOURNALISM",
+      "20. INVESTIGATIVE JOURNALISM TECHNIQUES",
+      "21. PUBLIC RELATIONS & CORPORATE COMMUNICATION",
+      "22. FREELANCE JOURNALISM & CONTENT CREATION",
+      "23. PORTFOLIO DEVELOPMENT & CAREER GUIDANCE",
+      "24. FINAL PROJECT: COMPREHENSIVE MEDIA CAMPAIGN"
+    ],
+  },
+
+  "Advanced Journalism and Mass Communication": {
+    topics: [
+      // Prerequisites
+      "3-MONTH JOURNALISM AND MASS COMMUNICATION FUNDAMENTALS COURSE",
+
+      // Month 4 - Advanced Reporting & Investigation
+      "<span class='month-title'>MONTH 4 - ADVANCED REPORTING & INVESTIGATION</span>",
+      "25. INVESTIGATIVE JOURNALISM & DEEP RESEARCH METHODS",
+      "26. DATA ANALYSIS & STATISTICAL REPORTING",
+      "27. FREEDOM OF INFORMATION ACT (RTI) & LEGAL RESEARCH",
+      "28. CONFLICT & CRISIS REPORTING",
+      "29. ENVIRONMENTAL & SCIENCE JOURNALISM",
+      "30. INTERNATIONAL JOURNALISM & FOREIGN CORRESPONDENCE",
+      "31. DOCUMENTARY FILMMAKING BASICS",
+      "32. MINI PROJECT 3: INVESTIGATIVE STORY DEVELOPMENT",
+
+      // Month 5 - Digital Innovation & New Media
+      "<span class='month-title'>MONTH 5 - DIGITAL INNOVATION & NEW MEDIA</span>",
+      "33. IMMERSIVE JOURNALISM (VR/AR IN NEWS)",
+      "34. AI IN JOURNALISM & AUTOMATED REPORTING",
+      "35. PODCAST PRODUCTION & AUDIO STORYTELLING",
+      "36. LIVE STREAMING & REAL-TIME REPORTING",
+      "37. SOCIAL MEDIA STRATEGY FOR JOURNALISTS",
+      "38. AUDIENCE ENGAGEMENT & COMMUNITY BUILDING",
+      "39. MEDIA ENTREPRENEURSHIP & STARTUP JOURNALISM",
+      "40. MINI PROJECT 4: LAUNCH DIGITAL MEDIA BRAND",
+
+      // Month 6 - Leadership & Industry Mastery
+      "<span class='month-title'>MONTH 6 - LEADERSHIP & INDUSTRY MASTERY</span>",
+      "41. NEWSROOM MANAGEMENT & EDITORIAL LEADERSHIP",
+      "42. MEDIA ECONOMICS & BUSINESS MODELS",
+      "43. CRISIS COMMUNICATION & REPUTATION MANAGEMENT",
+      "44. INTERNATIONAL MEDIA SYSTEMS & COMPARATIVE JOURNALISM",
+      "45. MEDIA CRITICISM & QUALITY ASSESSMENT",
+      "46. PROFESSIONAL NETWORKING & INDUSTRY CONNECTIONS",
+      "47. CAPSTONE PROJECT: COMPREHENSIVE MEDIA STRATEGY",
+      "48. FINAL PRESENTATION & CERTIFICATION"
+    ],
+  },
+
+  "AI Master Course": {
+    topics: [
+      // Month 1 - AI Fundamentals & Machine Learning Basics
+      "<span class='month-title'>MONTH 1 - AI FUNDAMENTALS & MACHINE LEARNING BASICS</span>",
+      "1. INTRODUCTION TO ARTIFICIAL INTELLIGENCE & ITS APPLICATIONS",
+      "2. MACHINE LEARNING CONCEPTS & ALGORITHMS",
+      "3. PYTHON PROGRAMMING FOR AI (BASICS TO INTERMEDIATE)",
+      "4. DATA PREPROCESSING & FEATURE ENGINEERING",
+      "5. SUPERVISED LEARNING (REGRESSION & CLASSIFICATION)",
+      "6. UNSUPERVISED LEARNING (CLUSTERING & DIMENSIONALITY REDUCTION)",
+      "7. MODEL EVALUATION & PERFORMANCE METRICS",
+      "8. MINI PROJECT 1: BUILD YOUR FIRST ML MODEL",
+
+      // Month 2 - Deep Learning & Neural Networks
+      "<span class='month-title'>MONTH 2 - DEEP LEARNING & NEURAL NETWORKS</span>",
+      "9. INTRODUCTION TO DEEP LEARNING & NEURAL NETWORKS",
+      "10. TENSORFLOW & KERAS FRAMEWORKS",
+      "11. CONVOLUTIONAL NEURAL NETWORKS (CNNs) FOR IMAGE PROCESSING",
+      "12. RECURRENT NEURAL NETWORKS (RNNs) FOR SEQUENCE DATA",
+      "13. NATURAL LANGUAGE PROCESSING (NLP) FUNDAMENTALS",
+      "14. COMPUTER VISION APPLICATIONS",
+      "15. TRANSFER LEARNING & PRE-TRAINED MODELS",
+      "16. MINI PROJECT 2: IMAGE CLASSIFICATION SYSTEM",
+
+      // Month 3 - Advanced AI & Generative Models
+      "<span class='month-title'>MONTH 3 - ADVANCED AI & GENERATIVE MODELS</span>",
+      "17. GENERATIVE ADVERSARIAL NETWORKS (GANs)",
+      "18. TRANSFORMER MODELS & ATTENTION MECHANISMS",
+      "19. LARGE LANGUAGE MODELS (LLMS) & CHATBOT DEVELOPMENT",
+      "20. AI ETHICS, BIAS, & RESPONSIBLE AI DEVELOPMENT",
+      "21. AI IN BUSINESS: STRATEGY & IMPLEMENTATION",
+      "22. CLOUD AI SERVICES (AWS, GOOGLE CLOUD, AZURE)",
+      "23. AI PROJECT DEPLOYMENT & SCALING",
+      "24. MINI PROJECT 3: DEPLOY AI APPLICATION",
+
+      // Month 4 - Specialized AI Applications
+      "<span class='month-title'>MONTH 4 - SPECIALIZED AI APPLICATIONS</span>",
+      "25. AI IN HEALTHCARE & MEDICAL DIAGNOSIS",
+      "26. AI IN FINANCE & ALGORITHMIC TRADING",
+      "27. AI IN MARKETING & CUSTOMER ANALYTICS",
+      "28. ROBOTICS & AI INTEGRATION",
+      "29. AI FOR CREATIVE INDUSTRIES (ART, MUSIC, WRITING)",
+      "30. AUTONOMOUS SYSTEMS & SELF-DRIVING TECHNOLOGY",
+      "31. AI RESEARCH METHODOLOGIES",
+      "32. MINI PROJECT 4: SPECIALIZED AI SOLUTION",
+
+      // Month 5 - AI Engineering & Production
+      "<span class='month-title'>MONTH 5 - AI ENGINEERING & PRODUCTION</span>",
+      "33. MLOPS & AI PIPELINE AUTOMATION",
+      "34. MODEL MONITORING & MAINTENANCE",
+      "35. AI SYSTEM ARCHITECTURE & SCALABILITY",
+      "36. DATA ENGINEERING FOR AI PROJECTS",
+      "37. AI SECURITY & PRIVACY PROTECTION",
+      "38. EDGE AI & IOT INTEGRATION",
+      "39. AI PERFORMANCE OPTIMIZATION",
+      "40. INDUSTRY PROJECT: REAL-WORLD AI SOLUTION",
+
+      // Month 6 - Leadership & Advanced Research
+      "<span class='month-title'>MONTH 6 - LEADERSHIP & ADVANCED RESEARCH</span>",
+      "41. AI TEAM LEADERSHIP & PROJECT MANAGEMENT",
+      "42. AI STARTUP & ENTREPRENEURSHIP",
+      "43. CUTTING-EDGE AI RESEARCH & PUBLICATIONS",
+      "44. AI CONSULTING & CLIENT MANAGEMENT",
+      "45. GLOBAL AI TRENDS & FUTURE TECHNOLOGIES",
+      "46. AI POLICY & REGULATORY COMPLIANCE",
+      "47. CAPSTONE PROJECT: COMPREHENSIVE AI SOLUTION",
+      "48. FINAL PRESENTATION, CERTIFICATION & CAREER GUIDANCE"
+    ],
+  },
+
+  "Social Media Marketing": {
+    topics: [
+      // Month 1 - Social Media Fundamentals
+      "<span class='month-title'>MONTH 1 - SOCIAL MEDIA FUNDAMENTALS</span>",
+      "1. INTRODUCTION TO SOCIAL MEDIA MARKETING & PLATFORMS",
+      "2. UNDERSTANDING SOCIAL MEDIA ALGORITHMS & USER BEHAVIOR",
+      "3. CREATING COMPELLING SOCIAL MEDIA PROFILES & OPTIMIZATION",
+      "4. CONTENT STRATEGY & PLANNING FOR SOCIAL PLATFORMS",
+      "5. FACEBOOK MARKETING: PAGES, GROUPS & ORGANIC GROWTH",
+      "6. INSTAGRAM MARKETING: POSTS, STORIES & REELS STRATEGY",
+      "7. VISUAL CONTENT CREATION WITH CANVA & DESIGN TOOLS",
+      "8. MINI PROJECT 1: CREATE SOCIAL MEDIA BRAND PRESENCE",
+
+      // Month 2 - Advanced Social Media & Paid Advertising
+      "<span class='month-title'>MONTH 2 - ADVANCED SOCIAL MEDIA & PAID ADVERTISING</span>",
+      "9. TWITTER/X MARKETING & TREND ENGAGEMENT STRATEGIES",
+      "10. LINKEDIN MARKETING FOR PROFESSIONALS & B2B",
+      "11. YOUTUBE MARKETING & CHANNEL OPTIMIZATION",
+      "12. TIKTOK & SHORT-FORM VIDEO CONTENT STRATEGIES",
+      "13. SOCIAL MEDIA ADVERTISING (META ADS, TWITTER ADS)",
+      "14. AUDIENCE TARGETING & CUSTOM AUDIENCE CREATION",
+      "15. AD CREATIVE DESIGN & A/B TESTING",
+      "16. MINI PROJECT 2: RUN PAID SOCIAL MEDIA CAMPAIGNS",
+
+      // Month 3 - Analytics, Automation & Growth
+      "<span class='month-title'>MONTH 3 - ANALYTICS, AUTOMATION & GROWTH</span>",
+      "17. SOCIAL MEDIA ANALYTICS & PERFORMANCE TRACKING",
+      "18. SOCIAL LISTENING & BRAND MONITORING TOOLS",
+      "19. INFLUENCER MARKETING & COLLABORATION STRATEGIES",
+      "20. SOCIAL MEDIA AUTOMATION TOOLS (HOOTSUITE, BUFFER)",
+      "21. COMMUNITY MANAGEMENT & CUSTOMER ENGAGEMENT",
+      "22. CRISIS MANAGEMENT ON SOCIAL MEDIA",
+      "23. SOCIAL COMMERCE & SELLING ON SOCIAL PLATFORMS",
+      "24. FINAL PROJECT: COMPREHENSIVE SOCIAL MEDIA STRATEGY"
+    ],
+  },
+
+  "Website Design": {
+    topics: [
+      // Month 1 - Web Design Fundamentals
+      "<span class='month-title'>MONTH 1 - WEB DESIGN FUNDAMENTALS</span>",
+      "1. INTRODUCTION TO WEB DESIGN & USER EXPERIENCE (UX)",
+      "2. HTML5 FUNDAMENTALS & SEMANTIC MARKUP",
+      "3. CSS3 STYLING, LAYOUTS & RESPONSIVE DESIGN",
+      "4. JAVASCRIPT BASICS FOR INTERACTIVE WEBSITES",
+      "5. DESIGN PRINCIPLES: COLOR THEORY, TYPOGRAPHY & LAYOUTS",
+      "6. WIREFRAMING & PROTOTYPING TOOLS (FIGMA, SKETCH)",
+      "7. ACCESSIBILITY & WEB STANDARDS COMPLIANCE",
+      "8. MINI PROJECT 1: BUILD RESPONSIVE LANDING PAGE",
+
+      // Month 2 - Advanced Design & CMS
+      "<span class='month-title'>MONTH 2 - ADVANCED DESIGN & CMS</span>",
+      "9. WORDPRESS DEVELOPMENT & CUSTOMIZATION",
+      "10. NO-CODE WEBSITE BUILDERS (WEBFLOW, WIX, SQUARESPACE)",
+      "11. E-COMMERCE WEBSITE DESIGN (SHOPIFY, WOOCOMMERCE)",
+      "12. MOBILE-FIRST DESIGN & PROGRESSIVE WEB APPS",
+      "13. WEBSITE PERFORMANCE OPTIMIZATION & SPEED",
+      "14. SEO-FRIENDLY WEBSITE STRUCTURE & ON-PAGE SEO",
+      "15. INTEGRATING FORMS, PAYMENTS & THIRD-PARTY TOOLS",
+      "16. MINI PROJECT 2: BUILD COMPLETE BUSINESS WEBSITE",
+
+      // Month 3 - Professional Development & Portfolio
+      "<span class='month-title'>MONTH 3 - PROFESSIONAL DEVELOPMENT & PORTFOLIO</span>",
+      "17. ADVANCED CSS FRAMEWORKS (BOOTSTRAP, TAILWIND)",
+      "18. VERSION CONTROL WITH GIT & GITHUB",
+      "19. WEBSITE HOSTING, DOMAINS & DEPLOYMENT",
+      "20. WEBSITE MAINTENANCE & SECURITY BEST PRACTICES",
+      "21. CLIENT COMMUNICATION & PROJECT MANAGEMENT",
+      "22. FREELANCE WEB DESIGN BUSINESS SETUP",
+      "23. PORTFOLIO DEVELOPMENT & CASE STUDY CREATION",
+      "24. FINAL PROJECT: COMPLETE CLIENT WEBSITE DELIVERY"
+    ],
+  }
+};
 
   // Course data for tier-based modal (for "Learn more" buttons)
   const courseData = {
@@ -1990,26 +2331,38 @@ const courseDetails = {
     const topicsModalTitle = topicsModal.querySelector("#modalTitle");
     const topicsModalBody = topicsModal.querySelector("#modalBody");
     const topicsModalEnrollBtn = topicsModal.querySelector("#modalEnrollBtn");
-    const topicsCloseBtn = topicsModal.querySelector(".close-btn");
+    
+    // FIXED: Find the close button correctly using aria-label attribute
+    const topicsCloseBtn = topicsModal.querySelector('button[aria-label="Close modal"]');
 
     // Add event listeners to "View Details" buttons
     document.querySelectorAll(".view-details-btn").forEach((button) => {
       button.addEventListener("click", function () {
         const courseName = this.getAttribute("data-course");
+        console.log("Button clicked!")
         showCourseTopics(courseName);
       });
     });
 
-    // Topics modal close events
+    
+
+    // Topics modal close events - FIXED
     if (topicsCloseBtn) {
+      console.log("Close button found and event listener added"); // Debug log
       topicsCloseBtn.addEventListener("click", function () {
+        console.log("Close button clicked"); // Debug log
         topicsModal.style.display = "none";
+        document.body.style.overflow = "auto"; // Restore scrolling
       });
+    } else {
+      console.log("Close button not found!"); // Debug log
     }
 
+    // Click outside to close
     topicsModal.addEventListener("click", function (event) {
       if (event.target === topicsModal) {
         topicsModal.style.display = "none";
+        document.body.style.overflow = "auto";
       }
     });
 
@@ -2022,6 +2375,7 @@ const courseDetails = {
         );
         openEnrollmentModal(courseName);
         topicsModal.style.display = "none";
+        document.body.style.overflow = "auto";
       });
     }
 
@@ -2152,7 +2506,7 @@ const courseDetails = {
     }
   }
 
-  // Close modals with Escape key
+  // Close modals with Escape key - UPDATED
   document.addEventListener("keydown", function (event) {
     if (event.key === "Escape") {
       if (topicsModal && topicsModal.style.display === "block") {
@@ -2166,176 +2520,23 @@ const courseDetails = {
     }
   });
 }
-// Close Button Fix - Add this to your script.js file
 
-document.addEventListener("DOMContentLoaded", function () {
-  // Initialize close button functionality for all modals
-  initModalCloseFunctionality();
+// Initialize the system when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+  console.log("DOM loaded, initializing course system..."); // Debug log
+  initIntegratedCourseDetailsSystem();
 });
 
-function initModalCloseFunctionality() {
-  // Function to close any modal
-  function closeModal(modal) {
-    if (modal) {
-      modal.style.display = "none";
-      modal.classList.remove("active");
-      modal.setAttribute("aria-hidden", "true");
-      document.body.style.overflow = "auto";
-    }
-  }
 
-  // Handle all close buttons - multiple selectors for different modal types
-  const closeButtons = document.querySelectorAll(`
-        .close-btn, 
-        .close-modal, 
-        #closeModal, 
-        .close-popup,
-        .close-image-modal
-    `);
 
-  console.log("Found close buttons:", closeButtons.length); // Debug line
 
-  closeButtons.forEach((closeBtn, index) => {
-    console.log(`Setting up close button ${index}:`, closeBtn); // Debug line
 
-    closeBtn.addEventListener("click", function (e) {
-      e.preventDefault();
-      e.stopPropagation();
 
-      console.log("Close button clicked:", this); // Debug line
 
-      // Find the parent modal
-      let modal = this.closest(".modal");
-      if (!modal) {
-        modal = this.closest(".course-details-modal");
-      }
-      if (!modal) {
-        modal = this.closest('[role="dialog"]');
-      }
-      if (!modal) {
-        // Fallback - find any visible modal
-        modal =
-          document.querySelector('.modal[style*="display: block"]') ||
-          document.querySelector(".course-details-modal.active") ||
-          document.querySelector("#courseModal");
-      }
 
-      console.log("Found modal to close:", modal); // Debug line
-      closeModal(modal);
-    });
-  });
 
-  // Handle clicks outside modal (backdrop click)
-  document.addEventListener("click", function (e) {
-    // Check if clicked element is a modal backdrop
-    if (
-      e.target.classList.contains("modal") ||
-      e.target.classList.contains("course-details-modal")
-    ) {
-      closeModal(e.target);
-    }
-  });
+////////////////////////////// HOME PAGE VIEW DETAILS \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-  // Handle Escape key for all modals
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") {
-      // Find any open modal
-      const openModals = document.querySelectorAll(`
-                .modal[style*="display: block"],
-                .course-details-modal.active,
-                #courseModal[style*="display: block"]
-            `);
 
-      openModals.forEach((modal) => closeModal(modal));
-    }
-  });
 
-  // Specific fix for your course details modals
-  const topicsModal = document.querySelector("#courseModal.modal");
-  const tiersModal = document.querySelector(".course-details-modal");
-
-  // Topics Modal (View Details) - direct selector fix
-  if (topicsModal) {
-    const topicsCloseBtn = topicsModal.querySelector(".close-btn");
-    if (topicsCloseBtn) {
-      topicsCloseBtn.onclick = function () {
-        console.log("Topics modal close clicked"); // Debug
-        topicsModal.style.display = "none";
-        document.body.style.overflow = "auto";
-      };
-    }
-  }
-
-  // Tiers Modal (Learn More) - direct selector fix
-  if (tiersModal) {
-    const tiersCloseBtn = tiersModal.querySelector("#closeModal");
-    if (tiersCloseBtn) {
-      tiersCloseBtn.onclick = function () {
-        console.log("Tiers modal close clicked"); // Debug
-        tiersModal.classList.remove("active");
-        document.body.style.overflow = "auto";
-      };
-    }
-  }
-
-  // Enrollment modal close fix
-  const enrollmentModal = document.getElementById("enrollmentModal");
-  if (enrollmentModal) {
-    const enrollCloseBtn = enrollmentModal.querySelector(".close-modal");
-    if (enrollCloseBtn) {
-      enrollCloseBtn.onclick = function () {
-        console.log("Enrollment modal close clicked"); // Debug
-        enrollmentModal.style.display = "none";
-        document.body.style.overflow = "auto";
-      };
-    }
-  }
-}
-
-// Alternative approach - Force override any existing close button handlers
-function forceCloseButtonFix() {
-  setTimeout(() => {
-    // Get all close buttons again after page is fully loaded
-    const allCloseButtons = document.querySelectorAll(
-      'button, [role="button"]'
-    );
-
-    allCloseButtons.forEach((btn) => {
-      const buttonText = btn.textContent.trim();
-      const hasCloseClass = btn.className.includes("close");
-      const hasCloseSymbol =
-        buttonText.includes("×") || buttonText.includes("✕");
-
-      if (hasCloseClass || hasCloseSymbol) {
-        console.log("Force-fixing close button:", btn);
-
-        // Remove all existing event listeners
-        const newBtn = btn.cloneNode(true);
-        btn.parentNode.replaceChild(newBtn, btn);
-
-        // Add new event listener
-        newBtn.addEventListener("click", function (e) {
-          e.preventDefault();
-          e.stopPropagation();
-
-          // Close all open modals
-          const modals = document.querySelectorAll(
-            ".modal, .course-details-modal"
-          );
-          modals.forEach((modal) => {
-            modal.style.display = "none";
-            modal.classList.remove("active");
-            document.body.style.overflow = "auto";
-          });
-        });
-      }
-    });
-  }, 1000);
-}
-
-// Run both fixes
-document.addEventListener("DOMContentLoaded", function () {
-  initModalCloseFunctionality();
-  forceCloseButtonFix();
-});
-
+////////////////////////////// Mobile toggle button \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
